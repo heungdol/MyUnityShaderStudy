@@ -6,7 +6,3 @@
 		# Unity 2018 Shaders and Effects Cookbook 3e 서적을 참고하여 쉐이더 및 이펙트 제작 
 		
 		# 해당 깃 주소: https://github.com/heungdol/GitHeungShader.git
-
-		# 매 프로젝트 시작시 git pull 실행할 것!
-
-		
