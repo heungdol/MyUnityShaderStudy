@@ -1,4 +1,4 @@
-﻿Shader "MyShader/SimpleDiffuse"
+﻿Shader "MyShader/Chapter3/SimpleDiffuse"
 {
     Properties
     {

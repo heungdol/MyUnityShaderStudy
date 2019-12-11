@@ -1,4 +1,4 @@
-﻿Shader "MyShader/StandardColor"
+﻿Shader "MyShader/Chapter2/StandardColor"
 {
     Properties
     {

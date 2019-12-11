@@ -1,4 +1,4 @@
-﻿Shader "MyShader/NormalShader"
+﻿Shader "MyShader/Chapter3/NormalShader"
 {
     Properties
     {

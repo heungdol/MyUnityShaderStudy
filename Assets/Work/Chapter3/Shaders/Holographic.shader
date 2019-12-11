@@ -1,4 +1,4 @@
-﻿Shader "MyShader/Holographic"
+﻿Shader "MyShader/Chapter3/Holographic"
 {
     Properties
     {

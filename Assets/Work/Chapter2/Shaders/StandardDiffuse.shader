@@ -1,4 +1,4 @@
-﻿Shader "MyShader/StandardDiffuse"
+﻿Shader "MyShader/Chapter2/StandardDiffuse"
 {
     Properties
     {

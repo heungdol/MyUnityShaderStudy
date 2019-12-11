@@ -1,4 +1,4 @@
-﻿Shader "MyShader/TexturedShader"
+﻿Shader "MyShader/Chapter3/TexturedShader"
 {
     Properties
     {

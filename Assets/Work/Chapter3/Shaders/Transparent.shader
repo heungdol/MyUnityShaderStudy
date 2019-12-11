@@ -1,4 +1,4 @@
-﻿Shader "MyShader/Transparent"
+﻿Shader "MyShader/Chapter3/Transparent"
 {
     Properties
     {

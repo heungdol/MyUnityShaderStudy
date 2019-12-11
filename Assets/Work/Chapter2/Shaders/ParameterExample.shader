@@ -1,4 +1,4 @@
-﻿Shader "MyShader/ParameterExample"
+﻿Shader "MyShader/Chapter2/ParameterExample"
 {
     Properties
     {

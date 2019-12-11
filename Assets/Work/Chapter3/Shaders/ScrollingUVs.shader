@@ -1,4 +1,4 @@
-﻿Shader "MyShader/ScrollingUVs"
+﻿Shader "MyShader/Chapter3/ScrollingUVs"
 {
     Properties
     {

@@ -53,8 +53,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Work\Chapter2\Shaders\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Work\Chapter3\Scripts\SetRadiusProperties.cs" />
+     <None Include="Assets\Work\Chapter3\Shaders\TextureBlending.shader" />
+     <None Include="Assets\Work\Chapter2\Shaders\ParameterExample.shader" />
+     <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
+     <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
+     <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
+     <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
+     <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
+     <None Include="Assets\Work\Chapter3\Shaders\Transparent.shader" />
+     <None Include="Assets\Work\Chapter3\Shaders\RadiusShader.shader" />
+     <None Include="Assets\Work\Chapter2\Shaders\StandardColor.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/qq/Desktop/HeungShader/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
