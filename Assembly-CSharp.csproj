@@ -54,12 +54,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Work\Chapter3\Scripts\SetRadiusProperties.cs" />
+     <None Include="Assets\Work\Chapter4\Shaders\SimleLambert.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TextureBlending.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\ParameterExample.shader" />
+     <None Include="Assets\Work\Chapter4\Shaders\ToonShader.shader" />
+     <None Include="Assets\Work\Test\TestImageShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
+     <None Include="Assets\Work\Chapter4\Shaders\BlinnPhongShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Transparent.shader" />
