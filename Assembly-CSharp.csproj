@@ -60,6 +60,7 @@
      <None Include="Assets\Work\Chapter4\Shaders\ToonShader.shader" />
      <None Include="Assets\Work\Test\TestImageShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
+     <None Include="Assets\Work\Chapter4\Shaders\AnisotropicShader.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
