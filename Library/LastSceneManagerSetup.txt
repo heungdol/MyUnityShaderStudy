@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/Chapter4/CH4.unity
+- path: Assets/Work/Chapter5/Mirror.unity
   isLoaded: 1
   isActive: 1
