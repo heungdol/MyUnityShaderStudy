@@ -9,7 +9,7 @@
 
 	
 
-	● 만들고자 하는 셰이더 리스트 ●
+	● 구현하고자 하는 셰이더 리스트 ●
 		
 		# 반사 셰이더
 
@@ -22,5 +22,18 @@
 		# 글리치(색수차)를 이용한 Filed of View 포스트 프로세싱
 
 		# 망점(Halftone)으로 표현한 Bloom 포스트 프로세싱
+
+
+
+
+	※ 참고 포스트 리스트 ※
+
+		# 서피스 셰이더 수학 함수 모음: https://shimans.tistory.com/50
+
+		# 유니티 기본 셰이더 변수 레퍼런스: https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
+
+		# 참고 블로그 1: https://m.blog.naver.com/PostList.nhn?blogId=mnpshino
+
+		# 참고 블로그 2: https://mingyu0403.tistory.com/
 
 		
