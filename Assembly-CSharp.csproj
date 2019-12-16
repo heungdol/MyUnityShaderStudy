@@ -71,10 +71,12 @@
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
+     <None Include="Assets\Work\Chapter7\Shaders\Multiply.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Transparent.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VolumetricExplosion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\RadiusShader.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardColor.shader" />
+     <None Include="Assets\Work\Chapter7\Shaders\GrabShader.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/qq/Desktop/HeungShader/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

@@ -25,7 +25,6 @@
 
 
 
-
 	※ 참고 포스트 리스트 ※
 
 		# 서피스 셰이더 수학 함수 모음: https://shimans.tistory.com/50
@@ -35,5 +34,7 @@
 		# 참고 블로그 1: https://m.blog.naver.com/PostList.nhn?blogId=mnpshino
 
 		# 참고 블로그 2: https://mingyu0403.tistory.com/
+
+		# Bloom 이펙트: https://catlikecoding.com/unity/tutorials/advanced-rendering/bloom/
 
 		
