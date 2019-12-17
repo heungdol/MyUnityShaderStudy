@@ -63,11 +63,13 @@
      <None Include="Assets\Work\Test\TestImageShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\AnisotropicShader.shader" />
+     <None Include="Assets\Work\Chapter7\Shaders\WindowShader.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\BlinnPhongShader.shader" />
+     <None Include="Assets\Work\Chapter7\Shaders\WaterShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
