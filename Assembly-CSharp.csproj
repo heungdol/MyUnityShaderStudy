@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Work\Chapter3\Scripts\SetRadiusProperties.cs" />
+     <Compile Include="Assets\Work\Chapter9\Scripts\TestRenderImage.cs" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\SimleLambert.shader" />
@@ -71,6 +72,7 @@
      <None Include="Assets\Work\Chapter4\Shaders\BlinnPhongShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WaterShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
+     <None Include="Assets\Work\Chapter9\Shaders\ScreenGrayScale.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\Multiply.shader" />
