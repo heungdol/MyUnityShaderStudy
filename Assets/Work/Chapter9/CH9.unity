@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 121873258}
   - component: {fileID: 121873257}
   - component: {fileID: 121873260}
+  - component: {fileID: 121873261}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -202,13 +203,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121873256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9bf688fc8aa0e44cb8e9a7b79d1dfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   curShader: {fileID: 4800000, guid: b62ba85b75519234c944613613cb051a, type: 3}
   grayscaleAmount: 1
+--- !u!114 &121873261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121873256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3503ae79b9ddf4e44acafd7e797e01b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curShader: {fileID: 4800000, guid: d6f143248842b814d873a62623cbfc15, type: 3}
+  blendTexture: {fileID: 2800000, guid: 35168b5035f644f4d95b4b3af7ecf807, type: 3}
+  blendOpacity: 1
 --- !u!1 &126780496
 GameObject:
   m_ObjectHideFlags: 0

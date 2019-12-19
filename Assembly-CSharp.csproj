@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Work\Chapter3\Scripts\SetRadiusProperties.cs" />
+     <Compile Include="Assets\Work\Chapter9\Scripts\RenderBlendMode.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\TestRenderImage.cs" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
@@ -65,10 +66,12 @@
      <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\AnisotropicShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WindowShader.shader" />
+     <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
+     <None Include="Assets\Work\Chapter9\Shaders\ScreenBlendMode.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\BlinnPhongShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WaterShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
