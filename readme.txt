@@ -1,66 +1,66 @@
 
-	¡Ù ½ÎÁö¹æ¿¡¼­ ¼ÎÀÌ´õ Á¦ÀÛÇÏ±â ÇÁ·ÎÁ§Æ® ¡Ù
+	â˜† ì‹¸ì§€ë°©ì—ì„œ ì…°ì´ë” ì œì‘í•˜ê¸° í”„ë¡œì íŠ¸ â˜†
 
-		# º» Æú´õ ¹× ÇÁ·ÎÁ§Æ®´Â Àü¿ª ÈÄ Æ÷Æ®Æú¸®¿À Á¦ÀÛ¿¡ ÀÖ¾î µµ¿òÀÌ µÇµµ·Ï ÇÔ¿¡ ÀÖÀ½
+		# ë³¸ í´ë” ë° í”„ë¡œì íŠ¸ëŠ” ì „ì—­ í›„ í¬íŠ¸í´ë¦¬ì˜¤ ì œì‘ì— ìˆì–´ ë„ì›€ì´ ë˜ë„ë¡ í•¨ì— ìˆìŒ
 
-		# Unity 2018 Shaders and Effects Cookbook 3e ¼­ÀûÀ» Âü°íÇÏ¿© ¼ÎÀÌ´õ ¹× ÀÌÆåÆ® Á¦ÀÛ 
+		# Unity 2018 Shaders and Effects Cookbook 3e ì„œì ì„ ì°¸ê³ í•˜ì—¬ ì…°ì´ë” ë° ì´í™íŠ¸ ì œì‘ 
 
-		# ÇØ´ç ±ê ÁÖ¼Ò: https://github.com/heungdol/GitHeungShader.git
+		# í•´ë‹¹ ê¹ƒ ì£¼ì†Œ: https://github.com/heungdol/GitHeungShader.git
 
 	
-	¡Ü ÇÁ·ÎÁ§Æ® ÄÁ¼Á ¡Ü
+	â— í”„ë¡œì íŠ¸ ì»¨ì…‰ â—
 
-		# »çÀÌ¹öÆãÅ©
+		# ì‚¬ì´ë²„í‘í¬
 		
 
-	¡Ü ÇØ´ç ¼­ÀûÀ¸·ÎºÎÅÍ Á¤¸®ÇÒ ¼ÎÀÌ´õ ¹× ½ºÅ©¸³Æ® ¡Ü
+	â— í•´ë‹¹ ì„œì ìœ¼ë¡œë¶€í„° ì •ë¦¬í•  ì…°ì´ë” ë° ìŠ¤í¬ë¦½íŠ¸ â—
 
-		# È¦·Î±×·¥ ¼ÎÀÌ´õ
+		# í™€ë¡œê·¸ë¨ ì…°ì´ë”
 
-		# ¾Ö´Ï¸ŞÀÌ¼Ç ¼ÎÀÌ´õ
+		# ì• ë‹ˆë©”ì´ì…˜ ì…°ì´ë”
 
-		# ³ë¸Ö ¼ÎÀÌ´õ
+		# ë…¸ë©€ ì…°ì´ë”
 
-		# ºÒÅõ¸í ¼ÎÀÌ´õ
+		# ë¶ˆíˆ¬ëª… ì…°ì´ë”
 
-		# Å÷ ¼ÎÀÌ´õ
+		# íˆ° ì…°ì´ë”
 
-		# ½º³ë¿ì ¼ÎÀÌ´õ
+		# ìŠ¤ë…¸ìš° ì…°ì´ë”
 
-		# ¹İ»ç ¼ÎÀÌ´õ
+		# ë°˜ì‚¬ ì…°ì´ë”
 
-		# ¿Ö°î ¼ÎÀÌ´õ
+		# ì™œê³¡ ì…°ì´ë”
 
-		# ±âº» Æ÷½ºÆ® ÇÁ·Î¼¼½Ì È¿°ú
+		# ê¸°ë³¸ í¬ìŠ¤íŠ¸ í”„ë¡œì„¸ì‹± íš¨ê³¼
 
-		¡Ø ¿©±â¼­ ¼ÎÀÌ´õ´Â ¼­ÇÇ½º ¼ÎÀÌ´õ°¡ ¾Æ´Ñ ¹öÅØ½º ¼ÎÀÌ´õ¸¦ ¸»ÇÔ
+		â€» ì—¬ê¸°ì„œ ì…°ì´ë”ëŠ” ì„œí”¼ìŠ¤ ì…°ì´ë”ê°€ ì•„ë‹Œ ë²„í…ìŠ¤ ì…°ì´ë”ë¥¼ ë§í•¨
 
 
-	¡Ü ±¸ÇöÇÏ°íÀÚ ÇÏ´Â ÁÖ¿ä ¼ÎÀÌ´õ ¸®½ºÆ® ¡Ü
+	â— êµ¬í˜„í•˜ê³ ì í•˜ëŠ” ì£¼ìš” ì…°ì´ë” ë¦¬ìŠ¤íŠ¸ â—
 		
-		# ¹İ»ç ¼ÎÀÌ´õ
+		# ë°˜ì‚¬ ì…°ì´ë”
 
-		# ±Û¸®Ä¡ ¼ÎÀÌ´õ
+		# ê¸€ë¦¬ì¹˜ ì…°ì´ë”
 
-		# ¿Ö°î ¼ÎÀÌ´õ
+		# ì™œê³¡ ì…°ì´ë”
 
-		# ±Û¸®Ä¡(»ö¼öÂ÷)¸¦ ÀÌ¿ëÇÑ Filed of View Æ÷½ºÆ® ÇÁ·Î¼¼½Ì
+		# ê¸€ë¦¬ì¹˜(ìƒ‰ìˆ˜ì°¨)ë¥¼ ì´ìš©í•œ Filed of View ì…°ì´ë” ë° í¬ìŠ¤íŠ¸ í”„ë¡œì„¸ì‹±
 
-		# ¸ÁÁ¡(Halftone)À¸·Î Ç¥ÇöÇÑ Bloom Æ÷½ºÆ® ÇÁ·Î¼¼½Ì
+		# ë§ì (Halftone)ìœ¼ë¡œ í‘œí˜„í•œ Bloom ì…°ì´ë” ë° í¬ìŠ¤íŠ¸ í”„ë¡œì„¸ì‹±
 
 
-	¡Ø Âü°í Æ÷½ºÆ® ¸®½ºÆ® ¡Ø
+	â€» ì°¸ê³  í¬ìŠ¤íŠ¸ ë¦¬ìŠ¤íŠ¸ â€»
 
-		# ¼­ÇÇ½º ¼ÎÀÌ´õ ¼öÇĞ ÇÔ¼ö ¸ğÀ½: https://shimans.tistory.com/50
+		# ì„œí”¼ìŠ¤ ì…°ì´ë” ìˆ˜í•™ í•¨ìˆ˜ ëª¨ìŒ: https://shimans.tistory.com/50
 
-		# À¯´ÏÆ¼ ±âº» ¼ÎÀÌ´õ º¯¼ö ·¹ÆÛ·±½º: https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
+		# ìœ ë‹ˆí‹° ê¸°ë³¸ ì…°ì´ë” ë³€ìˆ˜ ë ˆí¼ëŸ°ìŠ¤: https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
 
-		# Âü°í ºí·Î±× 1: https://m.blog.naver.com/PostList.nhn?blogId=mnpshino
+		# ì°¸ê³  ë¸”ë¡œê·¸ 1: https://m.blog.naver.com/PostList.nhn?blogId=mnpshino
 
-		# Âü°í ºí·Î±× 2: https://mingyu0403.tistory.com/
+		# ì°¸ê³  ë¸”ë¡œê·¸ 2: https://mingyu0403.tistory.com/
 
-		# Bloom ÀÌÆåÆ®: https://catlikecoding.com/unity/tutorials/advanced-rendering/bloom/
+		# Bloom ì´í™íŠ¸: https://catlikecoding.com/unity/tutorials/advanced-rendering/bloom/
 
-		# »çÀÌ¹öÆãÅ© ½ºÅ¸ÀÏ Âü°í ÀÌ¹ÌÁö: https://www.boredpanda.com/cyberpunk-asian-cities-photography-steve-roe/?utm_source=google&utm_medium=organic&utm_campaign=organic
+		# ì‚¬ì´ë²„í‘í¬ ìŠ¤íƒ€ì¼ ì°¸ê³  ì´ë¯¸ì§€: https://www.boredpanda.com/cyberpunk-asian-cities-photography-steve-roe/?utm_source=google&utm_medium=organic&utm_campaign=organic
 
 		
