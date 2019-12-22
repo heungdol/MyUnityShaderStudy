@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Work\Chapter10\Scripts\RenderNightVision.cs" />
      <Compile Include="Assets\Work\Chapter10\Scripts\RenderOldFilm.cs" />
+     <Compile Include="Assets\Work\Chapter11\Scripts\HeatmapDrawer.cs" />
      <Compile Include="Assets\Work\Chapter3\Scripts\SetRadiusProperties.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\RenderBlendMode.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\RenderBSC.cs" />
@@ -63,6 +64,7 @@
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\SimleLambert.shader" />
+     <None Include="Assets\Work\Chapter11\Shaders\FurPass.cginc" />
      <None Include="Assets\Work\Chapter3\Shaders\TextureBlending.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\ParameterExample.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenDepth.shader" />
@@ -74,6 +76,7 @@
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
+     <None Include="Assets\Work\Chapter11\Shaders\Fur.shader" />
      <None Include="Assets\Work\Chapter10\Shaders\ScreenOldFilm.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
@@ -82,6 +85,7 @@
      <None Include="Assets\Work\Chapter7\Shaders\WaterShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBSC.shader" />
+     <None Include="Assets\Work\Chapter11\Shaders\Heatmap.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenGrayScale.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Desaturate.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
