@@ -83,6 +83,7 @@
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBSC.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenGrayScale.shader" />
+     <None Include="Assets\Work\Chapter11\Shaders\Desaturate.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\Multiply.shader" />

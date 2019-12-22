@@ -64,7 +64,7 @@
                 half2 noiseUV = half2 (i.uv.x + (_RandomValue * _SinTime.z * _NoiseXSpeed), i.uv.y + (_Time.x * _NoiseYSpeed));
                 fixed4 noiseTex = tex2D (_NoiseTex, noiseUV);
 
-                fixed lum = dot (fixed3 (0.299, 0.587, 0.114), renderTex.rgb);
+                fixed lum =  dot (fixed3 (0.299, 0.587, 0.114), renderTex.rgb);
                 lum += _Brightness;
 
                 fixed4 finalColor = (lum * 2) + _NightVisionColor;
