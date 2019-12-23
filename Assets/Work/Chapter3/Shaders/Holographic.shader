@@ -28,6 +28,7 @@
             float2 uv_MainTex;
             float3 worldNormal;
             float3 viewDir;
+            float3 lightDir;
         };
 
         fixed4 _Color;

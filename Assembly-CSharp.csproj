@@ -71,6 +71,7 @@
      <None Include="Assets\Work\Chapter4\Shaders\ToonShader.shader" />
      <None Include="Assets\Work\Test\TestImageShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
+     <None Include="Assets\Work\Custom\Shaders\GlitchFOVShader.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\AnisotropicShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WindowShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />

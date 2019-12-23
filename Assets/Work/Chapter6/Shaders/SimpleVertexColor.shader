@@ -35,6 +35,7 @@
 
         void vert (inout appdata_full v, out Input o)
         {
+            // 초기화 함수
             UNITY_INITIALIZE_OUTPUT (Input, o);
             o.vertColor = v.color;
         }
