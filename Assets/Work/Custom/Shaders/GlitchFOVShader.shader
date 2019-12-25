@@ -2,68 +2,74 @@
 {
     Properties
     {
-        _GlitchOffset ("Glitch Offset", Range (0, 0.05)) = 0
+        _MainTex ("Base (RGB)", 2D) = "white" {}
+        _DepthPower ("Depth Power", Range (0, 1)) = 0.01
+        _DepthStart ("Depth Start", Range (0, 0.5)) = 0.1
+        _DepthEnd ("Depth End", Range (0.5, 1)) = 0.9
+        _GlitchThreshold ("Glitch Threshold", Range (0, 1)) = 0.75
+        _GlitchOffset ("Glitch Offset", Range (0.0, 0.1)) = 0
+        
     }
     SubShader
     {
-        Tags { "Queue"="Transparent" }
-
-        Grabpass {}
-
         Pass
         {
             CGPROGRAM
-            #pragma vertex vert
+            #pragma vertex vert_img // 미리 정의되어 있는 vert_img
             #pragma fragment frag
-
+            #pragma fragmentoption ARB_precision_hint_fastest
             #include "UnityCG.cginc"
 
-            // 미리 정의된 변수
-            sampler2D _GrabTexture;
-            float _GlitchOffset;
+            uniform sampler2D _MainTex;
 
-            struct vertInput
+            fixed _DepthStart;
+            fixed _DepthEnd;
+            fixed _DepthPower;
+
+            fixed _GlitchOffset;
+            fixed _GlitchThreshold;
+
+            sampler2D _CameraDepthTexture;
+
+            fixed4 frag (v2f_img i) : COLOR
             {
-                float4 vertex : POSITION;
-                float4 texcoord : TEXCOORD0;
-            };
+                fixed4 finalCol = tex2D (_MainTex, i.uv.xy);
 
-            struct vertOutput
-            {
-                float4 vertex : POSITION;
-                float4 texcoord : TEXCOORD0;
-                float4 uvgrab : TEXCOORD1;
-            };
+                float depth = UNITY_SAMPLE_DEPTH ( tex2D (_CameraDepthTexture, i.uv.xy));
+                depth = pow (Linear01Depth (depth), _DepthPower);
 
-            vertOutput vert (vertInput v)
-            {
-                vertOutput o;
+                if (depth > _DepthEnd)
+                {
+                    depth = 1;
+                }
+                else if (_DepthEnd >= depth && depth > _DepthStart)
+                {
+                    float p = (depth - _DepthStart) / (_DepthEnd - _DepthStart);
+                    depth = p;
+                }
+                else
+                {
+                    return finalCol;
+                }
 
-                o.vertex = UnityObjectToClipPos (v.vertex);
-                o.texcoord = v.texcoord;
-                o.uvgrab = ComputeGrabScreenPos (o.vertex);
+                float totalOffset = depth * _GlitchOffset;
 
-                return o;
-            }
+                finalCol.r = tex2D (_MainTex, i.uv.xy - float2 (totalOffset, 0)).r;
+                finalCol.g = tex2D (_MainTex, i.uv.xy).g;
+                finalCol.b = tex2D (_MainTex, i.uv.xy + float2 (totalOffset, 0)).b;
 
-            half4 frag (vertOutput i) : COLOR
-            {
-                //fixed4 col = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab));
-
-                fixed colR = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab + fixed4 (_GlitchOffset, 0, 0, 0))).r;
-                fixed colG = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab)).g;
-                fixed colB = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab + fixed4 (-_GlitchOffset, 0, 0, 0))).b;
-
-                fixed4 finalCol = fixed4 (colR, colG, colB, 1);
                 return finalCol;
             }
+            
             ENDCG
         }
     }
-    FallBack "Diffuse"
+    FallBack off
 }
 
-//  실패
-//  실패이유: 카메라의 위치에 따라 글리치의 정도가 달라진다
+// 예상하지 못한 변수가 너무 많다
+// 1. 배경
+// 2. 사물이 겹칠때
+// 3. 멀리있는 사물은 offset이 같아도 더욱 멀리있어 보인다
 
-//  다른 구현 방안: 챕터 9의 ScreenDepth를 이용하여 구현하는 방법
+// 내일해보자
