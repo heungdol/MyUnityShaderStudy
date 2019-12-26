@@ -11,7 +11,7 @@ public class RenderGlitchFOV : MonoBehaviour
     public float dpethEnd = 0.75f;
 
     public float depthPower = 0.3f;
-    public float glitchThreshold = 0.2f;
+    public float depthThreshold = 0.2f;
     public float glitchOffset;
     
     private Material screenMat;
@@ -58,9 +58,10 @@ public class RenderGlitchFOV : MonoBehaviour
             ScreenMat.SetFloat ("_DepthPower", depthPower);
             ScreenMat.SetFloat ("_DepthStart", depthStart);
             ScreenMat.SetFloat ("_DepthEnd", dpethEnd);
+            ScreenMat.SetFloat ("_DepthThreshold", depthThreshold);
 
             ScreenMat.SetFloat ("_GlitchOffset", glitchOffset);
-            ScreenMat.SetFloat ("_GlitchThreshold", glitchThreshold);
+            
             
             Graphics.Blit (sourceTexture, destTexture, ScreenMat);
         }
@@ -76,8 +77,8 @@ public class RenderGlitchFOV : MonoBehaviour
         depthStart = Mathf.Clamp (depthStart, 0.0f, 0.5f);
         dpethEnd = Mathf.Clamp (dpethEnd, 0.5f, 1f);
         depthPower = Mathf.Clamp (depthPower, 0.0f, 1f);
+        depthThreshold = Mathf.Clamp (depthThreshold, 0.0f, 1.0f);
 
-        glitchThreshold = Mathf.Clamp (glitchThreshold, 0.0f, 1.0f);
         glitchOffset = Mathf.Clamp (glitchOffset, 0.0f, 0.1f);
         
     }

@@ -2,7 +2,7 @@
 {
     Properties
     {
-        _GlitchOffset ("Glitch Offset", Range (0, 0.05)) = 0
+        _GlitchOffset ("Glitch Offset", Range (0, 1)) = 0
     }
     SubShader
     {
@@ -48,13 +48,16 @@
 
             half4 frag (vertOutput i) : COLOR
             {
+                //_WorldSpaceCameraPos
                 //fixed4 col = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab));
 
-                fixed colR = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab + fixed4 (_GlitchOffset, 0, 0, 0))).r;
-                fixed colG = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab)).g;
-                fixed colB = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab + fixed4 (-_GlitchOffset, 0, 0, 0))).b;
+                fixed dis = distance (_WorldSpaceCameraPos, i.vertex);
 
-                fixed4 finalCol = fixed4 (colR, colG, colB, 1);
+                fixed colR = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab + fixed4 (_GlitchOffset * dis, 0, 0, 0))).r;
+                fixed colG = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab)).g;
+                fixed colB = tex2Dproj (_GrabTexture, UNITY_PROJ_COORD (i.uvgrab + fixed4 (-_GlitchOffset * dis, 0, 0, 0))).b;
+
+                fixed4 finalCol = fixed4 (0, colG, colB, 1);
                 return finalCol;
             }
             ENDCG

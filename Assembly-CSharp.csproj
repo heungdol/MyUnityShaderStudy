@@ -61,7 +61,7 @@
      <Compile Include="Assets\Work\Chapter9\Scripts\RenderBSC.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\RenderDepth.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\TestRenderImage.cs" />
-     <Compile Include="Assets\Work\Custom\RenderGlitchFOV.cs" />
+     <Compile Include="Assets\Work\Custom\Scripts\RenderGlitchFOV.cs" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\SimleLambert.shader" />
@@ -89,6 +89,7 @@
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBSC.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Heatmap.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenGrayScale.shader" />
+     <None Include="Assets\Work\Custom\Shaders\ScreenGlitchFOVShader.cginc" />
      <None Include="Assets\Work\Chapter11\Shaders\Desaturate.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
@@ -99,7 +100,7 @@
      <None Include="Assets\Work\Chapter3\Shaders\RadiusShader.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardColor.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\GrabShader.shader" />
-     <None Include="Assets\Work\Custom\Shaders\GlitchFOVShader.shader" />
+     <None Include="Assets\Work\Custom\Shaders\ScreenGlitchFOVShader.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/qq/Documents/HeungShader/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
