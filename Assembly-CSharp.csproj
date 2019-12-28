@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\UnityReference\BlurryRefraction\CommandBufferBlurRefraction.cs" />
      <Compile Include="Assets\Work\Chapter10\Scripts\RenderNightVision.cs" />
      <Compile Include="Assets\Work\Chapter10\Scripts\RenderOldFilm.cs" />
      <Compile Include="Assets\Work\Chapter11\Scripts\HeatmapDrawer.cs" />
@@ -72,13 +73,16 @@
      <None Include="Assets\Work\Chapter4\Shaders\ToonShader.shader" />
      <None Include="Assets\Work\Test\TestImageShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
+     <None Include="Assets\UnityReference\BlurryRefraction\GlassWithoutGrab.shader" />
      <None Include="Assets\Work\Custom\Shaders\GlitchFOVShaderFailed.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\AnisotropicShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WindowShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
+     <None Include="Assets\UnityReference\BlurryRefraction\SeparableBlur.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Fur.shader" />
+     <None Include="Assets\UnityReference\BlurryRefraction\_ReadMe.txt" />
      <None Include="Assets\Work\Chapter10\Shaders\ScreenOldFilm.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
