@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/UnityReference/BlurryRefraction/_BlurryRefraction.unity
+- path: Assets/Work/Custom/CameraTest.unity
   isLoaded: 1
   isActive: 1

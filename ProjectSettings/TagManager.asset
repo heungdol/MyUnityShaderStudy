@@ -15,10 +15,10 @@ TagManager:
   - 
   - PostProcessing
   - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Stage
+  - Actor
+  - Effect
   - 
   - 
   - 
