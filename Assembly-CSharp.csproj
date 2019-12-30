@@ -75,14 +75,15 @@
      <None Include="Assets\Work\Test\TestImageShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Holographic.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\GlassWithoutGrab.shader" />
-     <None Include="Assets\Work\Custom\Shaders\GlitchFOVShaderFailed.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\AnisotropicShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WindowShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
+     <None Include="Assets\Work\Custom\Distortion\DistortionByBump.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\SeparableBlur.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Fur.shader" />
+     <None Include="Assets\Work\Chapter7\Shaders\DistortionByBump.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\_ReadMe.txt" />
      <None Include="Assets\Work\Chapter10\Shaders\ScreenOldFilm.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
@@ -94,11 +95,11 @@
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBSC.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Heatmap.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenGrayScale.shader" />
-     <None Include="Assets\Work\Custom\Shaders\ScreenGlitchFOVShader.cginc" />
      <None Include="Assets\Work\Chapter11\Shaders\Desaturate.shader" />
+     <None Include="Assets\Work\Custom\Distortion\DistortionByShape.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
-     <None Include="Assets\Work\Chapter9\Shaders\ScreenGlitch.shader" />
+     <None Include="Assets\Work\Custom\CustomCamera\ScreenGlitch.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\Multiply.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Transparent.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VolumetricExplosion.shader" />
@@ -106,7 +107,6 @@
      <None Include="Assets\Work\Chapter3\Shaders\RadiusShader.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardColor.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\GrabShader.shader" />
-     <None Include="Assets\Work\Custom\CustomCamera\ScreenGlitchFOVShader.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/qq/Documents/HeungShader/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
