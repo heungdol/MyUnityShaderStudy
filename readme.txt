@@ -51,3 +51,17 @@
 		# 해당 폴리곤의 노멀을 이용한 셰이더: https://docs.unity3d.com/kr/530/Manual/ShaderTut2.html
 
 		# 외곽선 셰이더: https://www.videopoetics.com/tutorials/pixel-perfect-outline-shaders-unity/
+		
+	※ 기타 키워드 ※
+
+		# Color Grading
+		
+		# Color Correction
+		
+		# Chromatic Aberration
+		
+		# Fog
+		
+		# Screen Depth Map
+		
+		# Screen Normal Map: https://www.ronja-tutorials.com/2018/07/08/postprocessing-normal.html
