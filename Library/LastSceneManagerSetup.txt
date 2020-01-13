@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/Test.unity
+- path: Assets/Work/Custom/DepthNormal/DepthNormalScene.unity
   isLoaded: 1
   isActive: 1
