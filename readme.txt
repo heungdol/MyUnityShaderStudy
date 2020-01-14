@@ -19,7 +19,7 @@
 
 		# 글리치 셰이더
 
-		# 왜곡 셰이더
+		# 왜곡 셰이더 (Shock wave)
 
 		# 글리치(색수차)를 이용한 Filed of View 셰이더 및 포스트 프로세싱 (구현완료)
 
@@ -27,9 +27,9 @@
 
 		# 오브젝트 패턴 셰이더
 
-		# 툰스타일의 잔상 이펙트 셰이더
-
 		# Dissolve 이펙트 셰이더
+
+		# 
 
 
 	※ 참고 포스트 리스트 ※
@@ -51,6 +51,8 @@
 		# 해당 폴리곤의 노멀을 이용한 셰이더: https://docs.unity3d.com/kr/530/Manual/ShaderTut2.html
 
 		# 외곽선 셰이더: https://www.videopoetics.com/tutorials/pixel-perfect-outline-shaders-unity/
+
+		# 뭔가 신기해보임: http://kylehalladay.com/blog/tutorial/2017/02/06/ObjectShapeDistortion.html
 		
 	※ 기타 키워드 ※
 
@@ -66,5 +68,4 @@
 		
 		# Screen Normal Map: https://www.ronja-tutorials.com/2018/07/08/postprocessing-normal.html
 					https://mgun.tistory.com/1926
-
-	* Push test 20.01.13
+		(Custom Ambient Occlusion를 제작하기 위해 Screen상의 Depth와 Normals를 이용하기 위함)

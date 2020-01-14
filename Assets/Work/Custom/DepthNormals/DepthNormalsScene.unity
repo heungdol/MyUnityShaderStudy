@@ -371,13 +371,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456358513}
-  m_LocalRotation: {x: 0.34254038, y: -0, z: -0, w: 0.93950313}
-  m_LocalPosition: {x: 0, y: 4.95, z: -5.63}
+  m_LocalRotation: {x: 0.051971585, y: -0.01834778, z: 0.011809834, w: 0.99841017}
+  m_LocalPosition: {x: 0, y: 3.86, z: -2.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40.063004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.9820004, y: -2.0400002, z: 1.2490001}
 --- !u!114 &456358517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,13 +387,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 456358513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46e35986a68c8444b839588f2f5fd42, type: 3}
+  m_Script: {fileID: 11500000, guid: 75b9200e1a4955a4c8364cba1b8fcdee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curShader: {fileID: 4800000, guid: 38b33a6226400594e9e168d8d990d748, type: 3}
-  depthPower: 0.96
-  depthStartPoint: 0
-  depthEndPoint: 1
+  _camera: {fileID: 456358515}
+  _mat: {fileID: 2100000, guid: efa9d531826420b4c9f327895dff6d11, type: 2}
+  isNormalsScreen: 0
 --- !u!1 &696387590
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,13 +477,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696387590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 0, z: -4.46}
+  m_LocalRotation: {x: -0, y: 0.92046905, z: -0, w: -0.39081553}
+  m_LocalPosition: {x: -0.65, y: 2.66, z: 0.9}
   m_LocalScale: {x: 1, y: 2.5214005, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 226.01099, z: 0}
 --- !u!1 &950170220
 GameObject:
   m_ObjectHideFlags: 0
