@@ -5,7 +5,6 @@ Shader "MyShader/Custom/DNShader"
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_Seperate ("Seperate", range(0, 1)) = 0.5
 		_IsNormals ("Depth Zero, Normals One", Float) = 0
 	}
 	SubShader
@@ -28,7 +27,6 @@ Shader "MyShader/Custom/DNShader"
 			sampler2D _CameraDepthTexture;
 			float4 _CameraDepthTexture_TexelSize;
 
-			float _Seperate;
 			float _IsNormals;
 
 			struct appdata
