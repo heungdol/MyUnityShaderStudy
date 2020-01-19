@@ -23,8 +23,13 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PatternTex:
+        m_Texture: {fileID: 2800000, guid: 199ae306f42a407449e74cd629d9b82c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _CheckGap: 9.98
-    - _ThresholdD: 0.93
-    - _ThresholdN: 0.03
+    - _CheckGap: 0.021
+    - _PatternScale: 45
+    - _ThresholdD: -0.025
+    - _ThresholdN: -0
     m_Colors: []

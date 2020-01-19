@@ -53,6 +53,8 @@
 		# 외곽선 셰이더: https://www.videopoetics.com/tutorials/pixel-perfect-outline-shaders-unity/
 
 		# 뭔가 신기해보임: http://kylehalladay.com/blog/tutorial/2017/02/06/ObjectShapeDistortion.html
+
+		# 건물 내부 셰이더: https://chulin28ho.tistory.com/522?category=822622
 		
 	※ 기타 키워드 ※
 

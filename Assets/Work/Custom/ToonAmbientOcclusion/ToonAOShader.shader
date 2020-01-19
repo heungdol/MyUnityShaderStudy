@@ -3,9 +3,11 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_CheckGap ("Check Gap", Float) = 5
+		_PatternTex ("Pattern Texture", 2D) = "black" {}
+		_PatternScale ("Pattern Scale", Float) = 0.1
+		_CheckGap ("Check Gap", Range (0, 0.1)) = 0.1
 		_ThresholdN ("Threshold Normals Dot", Range (-1, 1)) = 0
-		_ThresholdD ("Threshold Depths Gap", Float) = 0.05 
+		_ThresholdD ("Threshold Depths Gap", Range (-1, 1)) = 0.05 
 	}
 	SubShader
 	{
@@ -47,27 +49,30 @@
 			}
 			
 			sampler2D _MainTex;
+			sampler2D _PatternTex;
 
+			float _PatternScale;
 			float _CheckGap;
 			float _ThresholdN;
 			float _ThresholdD;
 
-			int CheckNormals (float2 uv0, float2 uv1)
+			// 서로 간섭하지 않는 관계라면 0, 아니면 1 반환 
+			// 긍데 솔찍히 왜 이런 조건이어야 하는지 내 머리론 안굴려짐 ㅎㅎ 막하다 된거임
+			int CheckDepths (float2 uv0, float2 uv1)
 			{
 				// 이거는 현재 해당되는 중심픽셀
-				fixed4 col = tex2D(_CameraDepthNormalsTexture, uv0);
-				float depth;
-				float3 normal;
-				DecodeDepthNormal(col, depth, normal);
+				float depth = tex2D(_CameraDepthTexture, uv0).r;
+				depth = pow (depth, 0.5);
 
 				// 이거는 체크할 픽셀
-				fixed4 _col = tex2D(_CameraDepthNormalsTexture, uv1);
-				float _depth;
-				float3 _normal;
-				DecodeDepthNormal(_col, _depth, _normal);
+				float _depth = tex2D(_CameraDepthTexture, uv1 ).r;
+				_depth = pow (_depth, 0.5);
 
-				// 먼저 노멀의 내적을 확인
-				if (dot (normal, _normal) >= _ThresholdN)
+				// 그다음 깊이의 관계를 따짐
+				if (depth - _depth > 0)
+					return 0;
+
+				else if (depth - _depth < _ThresholdD)
 					return 0;
 
 				return 1;
@@ -75,6 +80,10 @@
 
 			float DotNormals (float2 uv0, float2 uv1)
 			{
+				// 먼저 깊이관계
+				if (CheckDepths (uv0, uv1) == 0)
+					return 1;
+				
 				// 이거는 현재 해당되는 중심픽셀
 				fixed4 col = tex2D(_CameraDepthNormalsTexture, uv0);
 				float depth;
@@ -93,56 +102,19 @@
 				return result;
 			}
 
-			int CheckDepths (float2 uv0, float2 uv1)
-			{
-				// 이거는 현재 해당되는 중심픽셀
-				float depth = tex2D(_CameraDepthTexture, uv0).r;
-				depth = pow (depth, 0.5);
-
-				// 이거는 체크할 픽셀
-				float _depth = tex2D(_CameraDepthTexture, uv1 ).r;
-				_depth = pow (_depth, 0.5);
-
-				// 그다음 깊이의 관계를 따짐
-				if (_depth < depth)
-					return 0;
-
-				else if (depth - _depth < _ThresholdD)
-					return 0;
-
-				return 1;
-			}
-
-			int CheckPixels ( float2 uv0, float2 uv1)
-			{
-				//if (uv1.x > 1 || uv1.x < 0)
-				//	return 0;
-				//if (uv1.y > 1 || uv1.y < 0)
-				//	return 0;
-				
-				if (CheckNormals (uv0, uv1) == 1)// && CheckDepths (uv0, uv1) == 1)
-					return 1;
-
-				return 0;
-			}
-			
-			// 홀수로만 하자
-			// 성능 때문에 어쩔 수 없이 하드코딩
-			int num = 5;
-
 			// _ScreenParams
 			// float4	x is the width of the camera’s target texture in pixels
 			// y is the height of the camera’s target texture in pixels
 			// z is 1.0 + 1.0/width
 			// w is 1.0 + 1.0/height
+			// -totalOffset * (_ScreenParams.x / _ScreenParams.y)
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				// 높이를 기준으로 할거임
-				float screenRate = _ScreenParams.y / _ScreenParams.x;
-
-				float checkAreaRateY = _CheckGap / _ScreenParams.y;
-				float checkAreaRateX = checkAreaRateY * screenRate;
+				// 홀수로만 하자
+				// 성능 때문에 어쩔 수 없이 하드코딩
+				int num = 7;
+				int total = 0;
 
 				float averageDots = 0;
 				
@@ -150,17 +122,24 @@
 				{
 					for (int y = -(num-1)/2; y <= (num-1)/2; y++)
 					{
-						averageDots += DotNormals (i.uv, i.uv + float2 (x * checkAreaRateX, y * checkAreaRateY));
+						averageDots += DotNormals (i.uv, i.uv + float2 (x * _CheckGap, y * _CheckGap * (_ScreenParams.x / _ScreenParams.y)));
+						total++;
 					}
 				}
 				
-				averageDots /= num * num;
+				// 평평할수록 1에 가깝다
+				averageDots /= total;
+				
+				// 흑 백
+				float pattern = tex2D (_PatternTex, i.uv * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
 
-				averageDots = DotNormals (i.uv, i.uv + float2 (2 * checkAreaRateX, 0 * checkAreaRateY));
-				averageDots += DotNormals (i.uv, i.uv + float2 (-2 * checkAreaRateX, 0 * checkAreaRateY));
-				averageDots /= 1;
+				float totalPattern = (1 - averageDots) * pattern;
+				totalPattern = (1 - totalPattern);
 
-				return float4 (averageDots ,averageDots, averageDots, 1);
+				float4 col = tex2D (_MainTex, i.uv);
+				col *= float4 (totalPattern ,totalPattern, totalPattern, 1);
+
+				return col;
 			}
 			ENDCG
 		}
