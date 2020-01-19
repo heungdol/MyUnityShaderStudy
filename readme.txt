@@ -23,6 +23,8 @@
 
 		# 글리치(색수차)를 이용한 Filed of View 셰이더 및 포스트 프로세싱 (구현완료)
 
+		# 툰 스타일의 Ambient Occlusion (구현완료)
+
 		# 망점(Halftone)으로 표현한 Bloom 셰이더 및 포스트 프로세싱
 
 		# 오브젝트 패턴 셰이더
