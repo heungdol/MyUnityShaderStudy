@@ -6,6 +6,7 @@
 		_PatternTex ("Pattern Texture", 2D) = "black" {}
 		_PatternScale ("Pattern Scale", Float) = 0.1
 		_CheckGap ("Check Gap", Range (0, 0.1)) = 0.1
+		_CheckNums ("Check Nums", Int) = 5
 		_ThresholdN ("Threshold Normals Dot", Range (-1, 1)) = 0
 		_ThresholdD ("Threshold Depths Gap", Range (-1, 1)) = 0.05 
 	}
@@ -50,6 +51,8 @@
 			
 			sampler2D _MainTex;
 			sampler2D _PatternTex;
+
+			int _CheckNums;
 
 			float _PatternScale;
 			float _CheckGap;
@@ -113,7 +116,7 @@
 			{
 				// 홀수로만 하자
 				// 성능 때문에 어쩔 수 없이 하드코딩
-				int num = 7;
+				int num = _CheckNums;
 				int total = 0;
 
 				float averageDots = 0;
@@ -122,6 +125,8 @@
 				{
 					for (int y = -(num-1)/2; y <= (num-1)/2; y++)
 					{
+						if (distance (x, y) > (num-1)/2)	continue;
+
 						averageDots += DotNormals (i.uv, i.uv + float2 (x * _CheckGap, y * _CheckGap * (_ScreenParams.x / _ScreenParams.y)));
 						total++;
 					}
