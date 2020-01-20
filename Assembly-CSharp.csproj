@@ -56,6 +56,7 @@
      <Compile Include="Assets\UnityReference\BlurryRefraction\CommandBufferBlurRefraction.cs" />
      <Compile Include="Assets\Work\Chapter10\Scripts\RenderNightVision.cs" />
      <Compile Include="Assets\Work\Chapter10\Scripts\RenderOldFilm.cs" />
+     <Compile Include="Assets\Work\Chapter10\TestRotation.cs" />
      <Compile Include="Assets\Work\Chapter11\Scripts\HeatmapDrawer.cs" />
      <Compile Include="Assets\Work\Chapter3\Scripts\SetRadiusProperties.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\RenderBlendMode.cs" />
@@ -63,10 +64,10 @@
      <Compile Include="Assets\Work\Chapter9\Scripts\RenderDepth.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\RenderGlitch.cs" />
      <Compile Include="Assets\Work\Chapter9\Scripts\TestRenderImage.cs" />
-     <Compile Include="Assets\Work\Custom\CustomCamera\RenderGlitchFOV.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\DepthVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\NormalVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\RenderDN.cs" />
+     <Compile Include="Assets\Work\Custom\Glitch\RenderGlitchFOV.cs" />
      <Compile Include="Assets\Work\Custom\ToonAmbientOcclusion\RenderToonAO.cs" />
      <None Include="Assets\Work\Custom\Shockwave\ShockwaveShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
@@ -96,6 +97,7 @@
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBlendMode.shader" />
+     <None Include="Assets\Work\Custom\HalftoneLight\HalftoneLightShader.shader" />
      <None Include="Assets\Work\Chapter4\Shaders\BlinnPhongShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WaterShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
@@ -108,7 +110,7 @@
      <None Include="Assets\Work\Fail\Distortion\DistortionByShape.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
-     <None Include="Assets\Work\Custom\CustomCamera\ScreenGlitch.shader" />
+     <None Include="Assets\Work\Custom\Glitch\ScreenGlitch.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\Multiply.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Transparent.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VolumetricExplosion.shader" />

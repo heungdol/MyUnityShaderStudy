@@ -1,4 +1,4 @@
-﻿Shader "MyShader/Custom/ScreenGlitch"
+﻿Shader "MyShader/Custom/Screen_Glitch"
 {
     Properties
     {

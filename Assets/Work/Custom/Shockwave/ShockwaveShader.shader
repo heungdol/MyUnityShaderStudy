@@ -1,13 +1,18 @@
-﻿Shader "MyShader/Custom/Shockwave"
+﻿Shader "MyShader/Custom/Object_Shockwave"
 {
     Properties
     {
-        _Dummy ("Dummy", 2D) = "bump" {}
         _Magnitude ("Magnitude", Range (0, 1)) = 0
      }
     SubShader
     {
-        Tags { "Queue"="Transparent" } 
+        Tags { 
+            "RenderType"="Opaque"
+            "Queue"="Transparent" 
+            "ForceNoShadowCasting" = "False"
+            "IgnoreProjector" = "True"
+            } 
+            
 
         Grabpass {}
 
@@ -16,11 +21,11 @@
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
 
             sampler2D _GrabTexture;
-            sampler2D _Dummy;
             float _Magnitude;
 
             struct vertInput
@@ -32,6 +37,7 @@
 
             struct vertOutput
             {
+                UNITY_FOG_COORDS(1)
                 float4 vertex : POSITION;
                 float4 texcoord : TEXCOORD0;
                 float4 uvgrab : TEXCOORD1;
@@ -48,6 +54,7 @@
                 o.texcoord = v.texcoord;
                 o.normal = v.normal;
                 o.viewDir = normalize (ObjSpaceViewDir (v.vertex));
+                UNITY_TRANSFER_FOG(o,o.vertex);
 
                 return o;
             }
@@ -82,5 +89,4 @@
             ENDCG
         }
     }
-    FallBack "Diffuse"
 }
