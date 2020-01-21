@@ -1,10 +1,11 @@
-﻿Shader "MyShader/Custom/Object_HalftoneLight"
+﻿Shader "MyShader/Custom/Object_HalftoneLight_Mesh"
 {
     Properties
     {
         //_MainTex ("Texture", 2D) = "white" {}
         _MainColor ("Main Color", Color) = (1, 1, 1, 1)
 
+        // 해당되는 값이 1이 되도록 하는 텍스쳐
         _PatternTex ("Pattern Texture", 2D) = "white" {}
         _PatternScale ("Pattern Scale", Float) = 1
         _PatternPow ("Pattern Power", Range (0.1, 10)) = 1
@@ -95,6 +96,7 @@
                 float4 texcoord : TEXCOORD0;
                 float3 normal : NORMAL;
                 float3 screenPos : TEXCOORD1;
+                float3 worldPos : TEXCOORD2;
                 float3 viewDir : POSITION1;
             };
 
@@ -109,19 +111,25 @@
                 o.screenPos = o.position.xyw;
                 o.screenPos.y *= _ProjectionParams.x;
 
+                o.worldPos = mul(unity_ObjectToWorld, v.position);
+
                 o.viewDir = normalize (ObjSpaceViewDir (v.position));
+                
 
                 return o;
             }
 
             float4 frag (vertOutput i) : SV_TARGET 
             {
+                //float2 screenUV = i.worldPos / i.worldPos.z;// (i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
                 float2 screenUV = (i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
 
+                // 값이 작아질수록 크기도 작아진다
                 float d = dot (i.normal, i.viewDir);
                 d = pow (d, _PatternPow);
 
                 float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
+                //float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale).r;
                 float4 resultCol;
                 resultCol.rgb = _MainColor.rgb;
 

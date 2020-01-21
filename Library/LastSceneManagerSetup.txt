@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/Custom/HalftoneLight/Halftone.unity
+- path: Assets/Work/Custom/PatternTint/PatternTint.unity
   isLoaded: 1
   isActive: 1

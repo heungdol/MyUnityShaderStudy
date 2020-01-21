@@ -25,9 +25,11 @@
 
 		# 툰 스타일의 Ambient Occlusion (구현완료)
 
-		# 망점(Halftone)으로 표현한 라이트 이펙트 (구현완료)
+		# 메쉬로 표현한 망점(Halftone) 라이트 이펙트 (구현완료)
 
-		# 오브젝트 패턴 셰이더
+		# 텍스쳐로 표현한 망점(Halftone) 라이트 이펙트 (구현완료)
+
+		# 오브젝트 패턴 셰이더 (구현완료)
 
 		# Dissolve 이펙트 셰이더
 
@@ -59,6 +61,8 @@
 		# 뭔가 신기해보임: http://kylehalladay.com/blog/tutorial/2017/02/06/ObjectShapeDistortion.html
 
 		# 건물 내부 셰이더: https://chulin28ho.tistory.com/522?category=822622
+
+		# 레트로 스타일 포스터: https://elements.envato.com/80s-retro-poster-photoshop-action-SDK33Z
 		
 	※ 기타 키워드 ※
 

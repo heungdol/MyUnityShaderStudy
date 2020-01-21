@@ -6,6 +6,8 @@
      }
     SubShader
     {
+        Cull Back
+        
         Tags { 
             "RenderType"="Opaque"
             "Queue"="Transparent" 
