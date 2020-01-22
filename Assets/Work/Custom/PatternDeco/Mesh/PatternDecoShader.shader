@@ -1,4 +1,4 @@
-﻿Shader "MyShader/Custom/Object_HalftoneLight_Mesh"
+﻿Shader "MyShader/Custom/Object_PatternDeco_Mesh"
 {
     Properties
     {
@@ -10,7 +10,7 @@
         _PatternScale ("Pattern Scale", Float) = 1
         _PatternPow ("Pattern Power", Range (0.1, 10)) = 1
 
-        _LightRange ("Lighting Range", Range (0, 1)) = 0.1
+        _LightRange ("Lighting Range", Range (0, 10)) = 0.1
     }
     SubShader
     {

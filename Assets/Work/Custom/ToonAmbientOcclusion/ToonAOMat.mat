@@ -24,13 +24,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PatternTex:
-        m_Texture: {fileID: 2800000, guid: 199ae306f42a407449e74cd629d9b82c, type: 3}
+        m_Texture: {fileID: 2800000, guid: a052c23d166852840a38634c6d4c3eaa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _CheckGap: 0.02
-    - _CheckNums: 5
+    - _CheckGap: 0.0025
+    - _CheckNums: 4
     - _PatternScale: 45
-    - _ThresholdD: -0.025
-    - _ThresholdN: -0
-    m_Colors: []
+    - _ThresholdD: -0.02
+    - _ThresholdN: 0.06
+    m_Colors:
+    - _PatternColor: {r: 1, g: 0, b: 0.46176243, a: 1}

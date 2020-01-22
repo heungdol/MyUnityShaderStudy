@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HalftoneLightMat
+  m_Name: PatternDecoMat
   m_Shader: {fileID: 4800000, guid: d1fdecd77b681cc4cae360f865590d8d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -67,12 +67,12 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LightRange: 0.258
+    - _LightRange: 0.96
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PatternPow: 0.64
+    - _PatternPow: 2.59
     - _PatternScale: 120
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -82,4 +82,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 1, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 0.4069972, g: 0, b: 1, a: 1}

@@ -14,7 +14,7 @@ public class SetRadiusProperties : MonoBehaviour
         if (radiusMat != null)
         {
             Vector3 pos = transform.position;
-            pos.y = 0f;
+            //pos.y = 0f;
 
             radiusMat.SetVector ("_Center", pos);
             radiusMat.SetFloat ("_Radius", radius);

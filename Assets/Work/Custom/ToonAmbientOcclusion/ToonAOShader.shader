@@ -4,10 +4,11 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_PatternTex ("Pattern Texture", 2D) = "black" {}
+		_PatternColor ("Pattern Color", Color) = (0, 0, 0, 1) 
 		_PatternScale ("Pattern Scale", Float) = 0.1
 		_CheckGap ("Check Gap", Range (0, 0.1)) = 0.1
 		_CheckNums ("Check Nums", Int) = 5
-		_ThresholdN ("Threshold Normals Dot", Range (-1, 1)) = 0
+		//_ThresholdN ("Threshold Normals Dot", Range (-1, 1)) = 0
 		_ThresholdD ("Threshold Depths Gap", Range (-1, 1)) = 0.05 
 	}
 	SubShader
@@ -55,8 +56,9 @@
 			int _CheckNums;
 
 			float _PatternScale;
+			float4 _PatternColor;
 			float _CheckGap;
-			float _ThresholdN;
+			//float _ThresholdN;
 			float _ThresholdD;
 
 			// 서로 간섭하지 않는 관계라면 0, 아니면 1 반환 
@@ -116,16 +118,15 @@
 			{
 				// 홀수로만 하자
 				// 성능 때문에 어쩔 수 없이 하드코딩
-				int num = _CheckNums;
 				int total = 0;
 
 				float averageDots = 0;
 				
-				for (int x = -(num-1)/2; x <= (num-1)/2; x++)
+				for (int x = -_CheckNums; x <= _CheckNums; x++)
 				{
-					for (int y = -(num-1)/2; y <= (num-1)/2; y++)
+					for (int y = -_CheckNums; y <= _CheckNums; y++)
 					{
-						if (distance (x, y) > (num-1)/2)	continue;
+						if (distance (x, y) > _CheckNums)	continue;
 
 						averageDots += DotNormals (i.uv, i.uv + float2 (x * _CheckGap, y * _CheckGap * (_ScreenParams.x / _ScreenParams.y)));
 						total++;
@@ -135,16 +136,15 @@
 				// 평평할수록 1에 가깝다
 				averageDots /= total;
 				
-				// 흑 백
-				float pattern = tex2D (_PatternTex, i.uv * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
+				// 패턴 읽어오기
+				float patternCol = tex2D (_PatternTex, i.uv * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
 
-				float totalPattern = (1 - averageDots) * pattern;
-				totalPattern = (1 - totalPattern);
+				float4 mainCol = tex2D (_MainTex, i.uv);
 
-				float4 col = tex2D (_MainTex, i.uv);
-				col *= float4 (totalPattern ,totalPattern, totalPattern, 1);
+				float3 totalCol = ((1 - averageDots) * patternCol * _PatternColor.a) * _PatternColor.rgb 
+								+ (1 - (1 - averageDots) * patternCol * _PatternColor.a) * mainCol.rgb;
 
-				return col;
+				return float4 (totalCol, 1);
 			}
 			ENDCG
 		}

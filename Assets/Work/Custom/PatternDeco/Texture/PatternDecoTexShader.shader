@@ -1,4 +1,4 @@
-﻿Shader "MyShader/Custom/Object_HalftoneLight_Texture"
+﻿Shader "MyShader/Custom/Object_PatternDeco_Texture"
 {
     Properties
     {

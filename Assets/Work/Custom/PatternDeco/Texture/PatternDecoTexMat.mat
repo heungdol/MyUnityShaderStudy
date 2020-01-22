@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HalftoneLightTexMat
+  m_Name: PatternDecoTexMat
   m_Shader: {fileID: 4800000, guid: b343f84999e131a4daf129cc5665483e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
