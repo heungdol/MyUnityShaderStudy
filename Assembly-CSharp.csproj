@@ -68,9 +68,9 @@
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\DepthVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\NormalVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\RenderDN.cs" />
+     <Compile Include="Assets\Work\Custom\PatternAmbientOcclusion\PatternAORender.cs" />
      <Compile Include="Assets\Work\Custom\PatternShadow\PatternShadow.cs" />
      <Compile Include="Assets\Work\Custom\PatternShadow\PatternShadowManager.cs" />
-     <Compile Include="Assets\Work\Custom\ToonAmbientOcclusion\RenderToonAO.cs" />
      <None Include="Assets\Work\Custom\Shockwave\ShockwaveShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
@@ -106,7 +106,7 @@
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
      <None Include="Assets\Work\Custom\PatternDeco\Texture\PatternDecoTexShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBSC.shader" />
-     <None Include="Assets\Work\Custom\ToonAmbientOcclusion\ToonAOShader.shader" />
+     <None Include="Assets\Work\Custom\PatternAmbientOcclusion\PatternAOShader.shader" />
      <None Include="Assets\Work\Custom\DepthNormals\Ex\NormalVisualizeShader.shader" />
      <None Include="Assets\Work\Custom\PatternShadow\PatternShadowShader.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Heatmap.shader" />

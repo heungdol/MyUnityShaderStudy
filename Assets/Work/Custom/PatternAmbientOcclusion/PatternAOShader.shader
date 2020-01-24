@@ -1,4 +1,4 @@
-﻿Shader "MyShader/Custom/Screen_ToonAmbientOcclusion"
+﻿Shader "MyShader/Custom/Screen_PatternAmbientOcclusion"
 {
 	Properties
 	{

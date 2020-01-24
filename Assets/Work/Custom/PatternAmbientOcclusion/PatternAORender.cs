@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class RenderToonAO : MonoBehaviour {
+public class PatternAORender : MonoBehaviour {
 	public Camera _camera;
 	public Material _mat;
 

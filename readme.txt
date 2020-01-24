@@ -12,6 +12,8 @@
 
 		# 사이버펑크
 		
+		# 스파이더맨 : 뉴 유니버스
+
 
 	● 구현하고자 하는 주요 셰이더 및 이펙트 리스트 ●
 		
@@ -39,6 +41,24 @@
 
 		# Color Grading를 이용한 사이퍼펑크 스타일 색감 표현
 
+
+	● 구현한 셰이더 및 이펙트 ●
+
+		# Chromatic Glitch
+
+		# Pattern Ambient Occlusion
+
+		# Pattern Deco (Mesh)
+
+		# Pattern Deco (Texture)
+
+		# Pattern Shadow
+
+		# Pattern Tint
+
+		# Shock Wave
+
+		
 
 	※ 참고 포스트 리스트 ※
 

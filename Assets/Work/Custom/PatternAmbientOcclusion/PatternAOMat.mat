@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonAOMat
+  m_Name: PatternAOMat
   m_Shader: {fileID: 4800000, guid: 625dc3ba5dcf4eb4499b3fb8f3f5a641, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -34,4 +34,4 @@ Material:
     - _ThresholdD: -0.02
     - _ThresholdN: 0.06
     m_Colors:
-    - _PatternColor: {r: 1, g: 0, b: 0.46176243, a: 1}
+    - _PatternColor: {r: 0, g: 0, b: 0, a: 1}
