@@ -1,4 +1,6 @@
-﻿Shader "MyShader/Custom/Object_CustomShadowShader"
+﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "MyShader/Custom/Object_CustomShadowShader"
 {
     Properties
     {
@@ -6,12 +8,21 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _RampTex ("Ramp Texture", 2D) = "white" {}
 
+        _PatternTex ("Pattern Texture", 2D) = "white" {}
+        _PatternScale ("Pattern Scale", Float) = 10
+        _PatternPow ("Pattern Power", Range (0.1, 10)) = 1
+
         //_BumpNormal ("Bumping Normal", Range (0, 0.1)) = 0.01
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        LOD 200
+        Tags { 
+            "RenderType"="Opaque"
+            "Queue"="Transparent" 
+            "ForceNoShadowCasting" = "False"
+            "IgnoreProjector" = "True"
+            } 
+        //LOD 200
 
         // 먼저 빛을 받는 일반적인 셰이더
         CGPROGRAM
@@ -53,6 +64,7 @@
         }
         ENDCG
 
+       
         // 두번째 단계로 그림자를 그린다
         Blend SrcAlpha OneMinusSrcAlpha 
 
@@ -67,31 +79,46 @@
             struct vertInput
             {
                 float4 pos : POSITION;
+                float3 normal : NORMAL;
             };
 
             struct vertOutput
             {
                 float4 pos : POSITION;
+                float3 normal : NORMAL;
                 fixed3 worldPos : TEXCOORD1;  
+                float3 screenPos : TEXCOORD2;
             };
 
             vertOutput vert (vertInput input)
             {
                 vertOutput o;
                 o.pos = UnityObjectToClipPos (input.pos);
+
+                o.normal = input.normal;
+
                 o.worldPos = mul (unity_ObjectToWorld, input.pos).xyz; 
+
+                o.screenPos = o.pos.xyw;
+                o.screenPos.y *= _ProjectionParams.x;
+
                 return o;
             }
 
+            sampler2D _PatternTex;
+            float _PatternScale;
+            float _PatternPow;
+
             uniform int _Points_Length = 0;
             uniform float4 _Properties [20];
-            uniform float _Radiuses [20];
+            //uniform float _Radiuses [20];
+
+            float4 _Color;
 
             //sampler2D _HeatTex;
 
-            half4 frag (vertOutput output) : COlOR
+            half4 frag (vertOutput output) : SV_TARGET
             {
-                float4 resultCol;
                 float s = 0;
 
                 for (int i = 0; i < _Points_Length; i++)
@@ -107,14 +134,27 @@
                 }
 
                 s = saturate (s);
+                s = pow (s, _PatternPow);
 
-                resultCol = (0, 0, 0, s);
+                float resultAlpha = 0;
+                //float2 screenUV = (output.screenPos.xy / output.screenPos.z) * 0.5 + 0.5;
+                float2 screenUV = mul (unity_WorldToObject, output.worldPos);
+                //float patternCol = tex2D (_PatternTex, screenUV * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
+                float patternCol = tex2D (_PatternTex, screenUV * _PatternScale).r;
+                
+                if (patternCol < (1 - s))
+                    resultAlpha = 0;
+                else
+                    resultAlpha = 1;
+
+
+                //resultCol = float4 (0, 0, 0, s);
 
                 //h = saturate (h);
                 //half4 color = tex2D (_HeatTex, fixed2 (h, 0.5));
                 //return color;
 
-                return resultCol;
+                return float4 (0, 0, 0, resultAlpha);
             }
             ENDCG
         }

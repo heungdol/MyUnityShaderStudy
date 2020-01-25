@@ -23,7 +23,7 @@ public class CustomShadowManager : MonoBehaviour
             if (shadows.Count != 0)
             {
                 Vector4 [] properties = new Vector4 [shadows.Count]; //(x, y, z, radius)
-                Vector4 [] colors = new Vector4 [shadows.Count];
+                //Vector4 [] colors = new Vector4 [shadows.Count];
 
                 // 셰이더에 정보를 전달할 수 있도록 배열들로 가공한다
                 for (int i = 0; i < shadows.Count; i++)
@@ -31,11 +31,11 @@ public class CustomShadowManager : MonoBehaviour
                     Vector3 pos = shadows [i].gameObject.transform.position;
 
                     properties [i] = new Vector4 (pos.x, pos.y, pos.z, shadows [i].GetRadius ());
-                    colors [i] = shadows [i].GetColor ();
+                    //colors [i] = shadows [i].GetColor ();
                 }
 
                 customShadowMat.SetVectorArray ("_Properties", properties);
-                customShadowMat.SetVectorArray ("_Colors", colors);
+                //customShadowMat.SetVectorArray ("_Colors", colors);
             }
         }
     }

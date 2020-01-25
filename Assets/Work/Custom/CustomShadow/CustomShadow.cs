@@ -4,7 +4,7 @@ public class CustomShadow : MonoBehaviour
 {
     public CustomShadowManager shadowManager;
     public float radius;
-    public Color color;
+    //public Color color; // 그림자 색깔은 같잖아
 
     // 그림자 또는 빛
     // 빛이라면 그림자 덮어씌움
@@ -23,11 +23,6 @@ public class CustomShadow : MonoBehaviour
     void OnDisable ()
     {
         shadowManager.RemoveShadowFromList (GetComponent <CustomShadow> ());
-    }
-
-    public Color GetColor ()
-    {
-        return color;
     }
     
     public float GetRadius ()
