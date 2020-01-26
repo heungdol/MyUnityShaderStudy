@@ -8,6 +8,7 @@ Shader "MyShader/Custom/Object_CustomShadowShader"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _RampTex ("Ramp Texture", 2D) = "white" {}
 
+        _PatternCol ("Pattern Color", Color) = (0, 0, 0, 1)
         _PatternTex ("Pattern Texture", 2D) = "white" {}
         _PatternScale ("Pattern Scale", Float) = 10
         _PatternPow ("Pattern Power", Range (0.1, 10)) = 1
@@ -105,6 +106,7 @@ Shader "MyShader/Custom/Object_CustomShadowShader"
                 return o;
             }
 
+            float4 _PatternCol;
             sampler2D _PatternTex;
             float _PatternScale;
             float _PatternPow;
@@ -137,9 +139,7 @@ Shader "MyShader/Custom/Object_CustomShadowShader"
                 s = pow (s, _PatternPow);
 
                 float resultAlpha = 0;
-                //float2 screenUV = (output.screenPos.xy / output.screenPos.z) * 0.5 + 0.5;
                 float2 screenUV = mul (unity_WorldToObject, output.worldPos);
-                //float patternCol = tex2D (_PatternTex, screenUV * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
                 float patternCol = tex2D (_PatternTex, screenUV * _PatternScale).r;
                 
                 if (patternCol < (1 - s))
@@ -147,14 +147,7 @@ Shader "MyShader/Custom/Object_CustomShadowShader"
                 else
                     resultAlpha = 1;
 
-
-                //resultCol = float4 (0, 0, 0, s);
-
-                //h = saturate (h);
-                //half4 color = tex2D (_HeatTex, fixed2 (h, 0.5));
-                //return color;
-
-                return float4 (0, 0, 0, resultAlpha);
+                return float4 (_PatternCol.rgb, resultAlpha);
             }
             ENDCG
         }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/Custom/CustomShadow/CustomShadow.unity
+- path: Assets/Work/Custom/PatternDeco/PatternDeco.unity
   isLoaded: 1
   isActive: 1

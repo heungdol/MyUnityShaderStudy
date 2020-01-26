@@ -71,12 +71,12 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                //float2 screenUV = i.worldPos;/// i.vertex.w;//(i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
-                float2 screenUV = (i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
+                float2 screenUV = mul (unity_WorldToObject, i.worldPos);/// i.vertex.w;//(i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
+                //float2 screenUV = (i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
 
                 float4 areaCol = tex2D (_AreaTex, i.uv);
-                float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
-                //float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale).r;
+                //float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
+                float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale).r;
                 patternCol = pow (patternCol, _PatternPow);
                 float4 resultCol;
 
