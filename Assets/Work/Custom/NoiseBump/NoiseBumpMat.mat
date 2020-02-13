@@ -35,6 +35,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DissolveTex:
+        m_Texture: {fileID: 2800000, guid: ca58e612a6e476b499c6b5e1417d6c41, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -48,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 3fce087ccb1ad1b498373556b9c69959, type: 3}
+        m_Texture: {fileID: 2800000, guid: 063b8cb1dc734964dbf96adbc4a3024e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -59,17 +63,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TempTex:
+        m_Texture: {fileID: 2800000, guid: 8c3e2f8c55f989b48822f0860a606794, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _DissolvePow: 0.5
+    - _DissolvePro: 0.64
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NoiseDegree: 0.8
+    - _NoiseDegree: 0.4
     - _NoiseScale: 10
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -81,4 +91,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.9575472, g: 0.99144095, b: 1, a: 1}
+    - _MainColor: {r: 0.7971698, g: 0.966107, b: 1, a: 1}
