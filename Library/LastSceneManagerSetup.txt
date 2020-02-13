@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/Custom/PatternDeco/PatternDeco.unity
+- path: Assets/Work/Custom/NoiseBump/NoiseBump.unity
   isLoaded: 1
   isActive: 1

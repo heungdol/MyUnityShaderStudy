@@ -110,6 +110,7 @@
      <None Include="Assets\Work\Chapter3\Shaders\NormalShader.shader" />
      <None Include="Assets\Work\Custom\PatternDeco\Texture\PatternDecoTexShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBSC.shader" />
+     <None Include="Assets\Work\Custom\NoiseBump\NoiseBumpShader.shader" />
      <None Include="Assets\Work\Custom\PatternAmbientOcclusion\PatternAOShader.shader" />
      <None Include="Assets\Work\Custom\DepthNormals\Ex\NormalVisualizeShader.shader" />
      <None Include="Assets\Work\Custom\CustomShadow\CustomShadowShader.shader" />
