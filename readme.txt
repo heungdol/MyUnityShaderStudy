@@ -87,6 +87,8 @@
 		# 건물 내부 셰이더: https://chulin28ho.tistory.com/522?category=822622
 
 		# 레트로 스타일 포스터: https://elements.envato.com/80s-retro-poster-photoshop-action-SDK33Z
+
+		# 미리 정의된 셰이더 변수들: https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
 		
 	※ 기타 키워드 ※
 

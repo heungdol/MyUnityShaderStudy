@@ -98,6 +98,7 @@
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Fur.shader" />
      <None Include="Assets\Work\Custom\DepthNormals\Ex\DepthVisualization.shader" />
+     <None Include="Assets\Work\Custom\MultiLight\MultiLightShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\DistortionByBump.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\_ReadMe.txt" />
      <None Include="Assets\Work\Chapter10\Shaders\ScreenOldFilm.shader" />

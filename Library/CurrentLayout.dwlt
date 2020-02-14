@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 125
+  controlID: 99
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 107
+  controlID: 100
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 318}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 126
+  controlID: 13
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -414,9 +414,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.0882542, y: 2.2179794, z: -5.3429527}
+    m_Target: {x: 6.6198378, y: -5.8477144, z: 7.119342}
     speed: 2
-    m_Value: {x: 1.0882542, y: 2.2179794, z: -5.3429527}
+    m_Value: {x: 6.6198378, y: -5.8477144, z: 7.119342}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -444,13 +444,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.041606806, y: -0.13447651, z: 0.005651499, w: 0.99002683}
+    m_Target: {x: 0.27533558, y: 0.1944111, z: -0.056958813, w: 0.93976086}
     speed: 2
-    m_Value: {x: 0.041606806, y: -0.13447651, z: 0.005651499, w: 0.99002683}
+    m_Value: {x: 0.27533558, y: 0.1944111, z: -0.056958813, w: 0.93976086}
   m_Size:
-    m_Target: 2.8578837
+    m_Target: 14.714369
     speed: 2
-    m_Value: 2.8578837
+    m_Value: 14.714369
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -551,20 +551,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Work/Custom/NoiseBump
+    - Assets/Work/Custom/MultiLight
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Work/Custom/NoiseBump
+  - Assets/Work/Custom/MultiLight
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\qq\Documents\HeungShader
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 507}
-    m_SelectedIDs: c60c0000
-    m_LastClickedID: 3270
-    m_ExpandedIDs: 00000000180c0000520c0000820c00009a0c00007e0e00005e0f000086100000ae100000c610000016110000ae1100001c1200007a120000a8300000aa30000000ca9a3b
+    m_SelectedIDs: 06110000
+    m_LastClickedID: 4358
+    m_ExpandedIDs: 000000001a0c0000540c0000840c00009c0c0000860e0000680f000092100000ba100000d210000024110000bc1100002812000086120000c8300000ca30000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,7 +592,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000180c0000520c0000820c00009a0c00007e0e00005e0f000086100000ae100000c610000016110000ae1100001c1200007a120000a8300000aa300000
+    m_ExpandedIDs: 000000001a0c0000540c0000840c00009c0c0000860e0000680f000092100000ba100000d210000024110000bc1100002812000086120000c8300000ca300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -623,18 +623,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000840c0000562f00005811000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: NoiseBumpShader
-      m_OriginalName: NoiseBumpShader
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 682
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b60c0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: defbffff
       m_RenameOverlay:
