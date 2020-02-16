@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -16,8 +16,7 @@
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -28,8 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -38,16 +36,14 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
     <NoStdLib>true</NoStdLib>
     <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.15f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -75,6 +71,7 @@
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\NormalVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\RenderDN.cs" />
      <Compile Include="Assets\Work\Custom\PatternAmbientOcclusion\PatternAORender.cs" />
+     <None Include="Assets\Work\Custom\MultiLight\MultiLightShader2.shader" />
      <None Include="Assets\Work\Custom\Shockwave\ShockwaveShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
@@ -93,6 +90,7 @@
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
      <None Include="Assets\Work\Custom\PatternTint\PatternTintShader.shader" />
      <None Include="Assets\Work\Fail\Distortion\DistortionByBump.shader" />
+     <None Include="Assets\Work\Custom\MultiLight\BetterDiffuse.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\SeparableBlur.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
@@ -714,4 +712,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>

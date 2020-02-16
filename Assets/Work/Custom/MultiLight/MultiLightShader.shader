@@ -19,9 +19,11 @@ Shader "MyShader/Custom/Object_MultiLightTest"
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#pragma multi_compile_fwdbase
 
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
+			
 
 			sampler2D _MainTex;
 			sampler2D _RampTex;
@@ -85,8 +87,10 @@ Shader "MyShader/Custom/Object_MultiLightTest"
             }
 
 			half4 frag (vertOutput i) : COLOR
-			{
-				 
+			{		
+				// 먼저 메인컬러
+				float3 mainColor = tex2Dlod (_MainTex, i.texcoord);
+
 				int lightNum = 0;
 
 				float totalDot = 0;
@@ -99,22 +103,40 @@ Shader "MyShader/Custom/Object_MultiLightTest"
 						continue;
 
 					//float3 lightDir = i.worldPos - unity_LightPosition
-					float3 lightWorldPos = mul( inverse(UNITY_MATRIX_MV), unity_LightPosition[index]).xyz;
-					float3 lightDir = i.worldPos - lightWorldPos;	lightDir = normalize (lightDir);
+					float3 lightWorldPos = mul(inverse(UNITY_MATRIX_V), unity_LightPosition[index]).xyz;
+					float3 lightDir = lightWorldPos - i.worldPos;	lightDir = normalize (lightDir);
 
-					totalDot += dot (i.normal, lightDir) * unity_LightAtten [index].z;
-					totalColor += unity_LightColor [index].xyz * unity_LightAtten [index].z;
+					float dd = dot (i.normal, lightDir);
+					dd = dd * 0.5 + 0.5;
+
+					// 빛 감쇠를 직접 계산하자
+					// aa = 현재거리 / 포인트 라이트의 최대 범위 (0 ~ 1)
+
+					//float aa = unity_4LightAtten0 [index];
+
+					float dis = distance (lightWorldPos, i.worldPos);
+					float aa = 1.0 / (1.0 + pow (dis, 2));
+
+					totalDot += dd * aa;// * unity_LightAtten [index].z;
+					totalColor += unity_LightColor [index].xyz  * aa;
 					
 					lightNum++;
 				}
 
-
+				if (lightNum == 0)
+				{
+					float3 tempBlack = tex2D (_RampTex, float2 (0, 0.5));
+					return float4 (mainColor * tempBlack, 1);
+				}
+					
 				totalDot /= lightNum;
 				totalColor /= lightNum;
 
+				//totalDot = pow (totalDot, _RampPow);
+
 				float2 tempUV = float2 (totalDot, 0.5);
 				float3 tempColor = tex2Dlod (_RampTex, float4 (tempUV, 0, 0));
-				float3 mainColor = tex2Dlod (_MainTex, i.texcoord);
+				
 
 				return float4 (mainColor * tempColor, 1);
 			}	

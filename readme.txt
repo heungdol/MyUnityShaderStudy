@@ -35,9 +35,11 @@
 
 		# 패턴 쉐도우 이펙트 (구현완료)
 
-		# 뭉개구름같은 효과 셰이더
+		# 뭉개구름같은 효과 셰이더 (구현완료)
 
 		# Dissolve 이펙트 셰이더
+
+		# 다중 포인트 라이트에 영향받는 툰 셰이더
 
 		# 관성 (지글, 스트링 본) 이펙트
 
@@ -105,3 +107,8 @@
 		# Screen Normal Map: https://www.ronja-tutorials.com/2018/07/08/postprocessing-normal.html
 					https://mgun.tistory.com/1926
 		(Custom Ambient Occlusion를 제작하기 위해 Screen상의 Depth와 Normals를 이용하기 위함)
+
+
+	# SHADOW_ATTENUATION(output) (result = 0 or 1)
+	# UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
+	# 그림자 셰이더

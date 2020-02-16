@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MultiLightMat
-  m_Shader: {fileID: 4800000, guid: e10ca6c6613a8fe489773b452eeb3b17, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2948c430c2fadf4408541c73e0a77351, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 31df225b8f707464299a1ac2b49ffb29, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 2800000, guid: b0b7f71cd2b8d274ea71af010dd4edc5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 12c59035018941543bdf5fbf28f13ab6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _diffuseMap:
@@ -82,6 +82,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.8726415, g: 0.9629502, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _diffuseColor: {r: 1, g: 1, b: 1, a: 1}
