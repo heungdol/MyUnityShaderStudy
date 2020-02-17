@@ -71,7 +71,7 @@
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\NormalVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\RenderDN.cs" />
      <Compile Include="Assets\Work\Custom\PatternAmbientOcclusion\PatternAORender.cs" />
-     <None Include="Assets\Work\Custom\MultiLight\MultiLightShader2.shader" />
+     <None Include="Assets\Work\Custom\MultiLight\MultiLightShaderNew.shader" />
      <None Include="Assets\Work\Custom\Shockwave\ShockwaveShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
@@ -90,13 +90,11 @@
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
      <None Include="Assets\Work\Custom\PatternTint\PatternTintShader.shader" />
      <None Include="Assets\Work\Fail\Distortion\DistortionByBump.shader" />
-     <None Include="Assets\Work\Custom\MultiLight\BetterDiffuse.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\SeparableBlur.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Fur.shader" />
      <None Include="Assets\Work\Custom\DepthNormals\Ex\DepthVisualization.shader" />
-     <None Include="Assets\Work\Custom\MultiLight\MultiLightShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\DistortionByBump.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\_ReadMe.txt" />
      <None Include="Assets\Work\Chapter10\Shaders\ScreenOldFilm.shader" />

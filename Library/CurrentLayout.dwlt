@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 64
+  controlID: 12
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 65
+  controlID: 13
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 318}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 13
+  controlID: 92
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -414,9 +414,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.4400722, y: -2.7651238, z: 6.3445196}
+    m_Target: {x: -2.8264298, y: -3.2718081, z: 10.914064}
     speed: 2
-    m_Value: {x: 1.4400722, y: -2.7651238, z: 6.3445196}
+    m_Value: {x: -2.8264298, y: -3.2718081, z: 10.914064}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -444,13 +444,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.2215388, y: 0.033619694, z: -0.0076447558, w: 0.9745419}
+    m_Target: {x: 0.22509459, y: -0.17860141, z: 0.042009823, w: 0.956906}
     speed: 2
-    m_Value: {x: 0.2215388, y: 0.033619694, z: -0.0076447558, w: 0.9745419}
+    m_Value: {x: 0.22509459, y: -0.17860141, z: 0.042009823, w: 0.956906}
   m_Size:
-    m_Target: 16.680086
+    m_Target: 15.800845
     speed: 2
-    m_Value: 16.680086
+    m_Value: 15.800845
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -551,20 +551,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Work/Custom/Dissolve
+    - Assets/Work/Custom/MultiLight
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Work/Custom/Dissolve
+  - Assets/Work/Custom/MultiLight
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\qq\Documents\HeungShader
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 426}
-    m_SelectedIDs: 32310000
-    m_LastClickedID: 12594
-    m_ExpandedIDs: 000000001e0c0000580c0000880c0000a00c00008a0e00006e0f000098100000c0100000d81000002a110000c21100002e1200008c120000e6300000e830000000ca9a3b
+    scrollPos: {x: 0, y: 546}
+    m_SelectedIDs: 12110000
+    m_LastClickedID: 4370
+    m_ExpandedIDs: 00000000200c00005a0c00008a0c0000a20c0000900e0000740f00009e100000c6100000de10000032110000ca1100003612000098120000d0300000d230000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,7 +592,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001e0c0000580c0000880c0000a00c00008a0e00006e0f000098100000c0100000d81000002a110000c21100002e1200008c120000e6300000e8300000
+    m_ExpandedIDs: 00000000200c00005a0c00008a0c0000a20c0000900e0000740f00009e100000c6100000de10000032110000ca1100003612000098120000d0300000d2300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -623,18 +623,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000840c0000562f00005811000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: MultiLightShaderNew
+      m_OriginalName: MultiLightShaderNew
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 690
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
@@ -670,7 +670,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 741
-    width: 1433
+    width: 1323
     height: 259
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &19
@@ -820,9 +820,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 2e100000
       m_LastClickedID: 0
-      m_ExpandedIDs: cef7ffff28fbffffdefbffff
+      m_ExpandedIDs: 08f8ffffdefbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

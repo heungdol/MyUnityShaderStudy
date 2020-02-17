@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/Custom/Dissolve/Dissolve.unity
+- path: Assets/Work/Custom/MultiLight/MultiLight.unity
   isLoaded: 1
   isActive: 1
