@@ -8,9 +8,8 @@ Shader "MyShader/Custom/Object_Toon"
         _Color ("Main Color", Color) = (1,1,1,1)
         _MainTex ("Base (RGB) Alpha (A)", 2D) = "white" {}
         _ShadowCol ("Shadow Color", Color) = (0, 0, 0, 1)
-        [IntRange] _ShadowLevel ("Shadow Level", Range (1, 9)) = 2
+        [IntRange] _ShadowLevel ("Shadow Level", Range (2, 9)) = 2
         _ShadowPow ("Shadow Power", Range (0.1, 10)) = 1
-        //_RampTex ("Ramp Texture", 2D) = "white" {}
     }
     SubShader 
     {
@@ -22,7 +21,6 @@ Shader "MyShader/Custom/Object_Toon"
 			{
 				"LightMode" = "ForwardBase"
 			}
-              // This Pass tag is important or Unity may not give it the correct light information.
            		CGPROGRAM
                 #pragma vertex vert
                 #pragma fragment frag
@@ -59,33 +57,15 @@ Shader "MyShader/Custom/Object_Toon"
                 fixed4 _Color;
                 fixed4 _ShadowCol;
 
-                //sampler2D _RampTex;
-                //fixed4 _LightColor0; // Colour of the light used in this pass.
- 
                 fixed4 frag(v2f i) : COLOR
                 {
-                    //i.lightDir = normalize(i.lightDir);
-                    
                     fixed atten = LIGHT_ATTENUATION(i); // Macro to get you the combined shadow & attenuation value.
-                    //float shadow = SHADOW_ATTENUATION(i);
                     fixed4 tex = tex2D(_MainTex, i.uv);
                     
                     tex *= _Color;
-                   
-					//fixed3 normal = i.normal;                    
-                    //fixed diff = saturate(dot(i.normal, i.lightDir));
-                    //diff = diff * 0.5 + 0.5;
-                    //diff *= atten;
-                   // diff *= shadow;
 
-                    //fixed rampColor = tex2D (_RampTex, float2 (diff, 0.5));
-                   // fixed rampDefault = tex2D (_RampTex, float2 (0, 0.5));
-                                        
                     fixed4 c;
-                    //c.rgb = (UNITY_LIGHTMODEL_AMBIENT.rgb * 2 * tex.rgb);         // Ambient term. Only do this in Forward Base. It only needs calculating once.
                     c.rgb = _ShadowCol * tex.rgb;
-                    //c.rgb += (tex.rgb * _LightColor0.rgb * rampColor);// * (atten * 2); // Diffuse and specular.
-                    //c.a = tex.a + _LightColor0.a * atten;
                     c.a = 1;
                     return c;
                 }
@@ -138,16 +118,11 @@ Shader "MyShader/Custom/Object_Toon"
                 int _ShadowLevel;
                 float _ShadowPow;
 
-               // sampler2D _RampTex;
- 
-                //fixed4 _LightColor0; // Colour of the light used in this pass.
- 
                 fixed4 frag(v2f i) : COLOR
                 {
                     i.lightDir = normalize(i.lightDir);
                     
                     fixed atten = LIGHT_ATTENUATION(i); // Macro to get you the combined shadow & attenuation value.
-                    //float shadow = SHADOW_ATTENUATION(i);
                     fixed3 col = tex2D(_MainTex, i.uv).rgb;
                     
                     col *= _Color.rgb;
@@ -157,66 +132,24 @@ Shader "MyShader/Custom/Object_Toon"
                     diff = diff * 0.5 + 0.5;
                     diff *= atten;
                     diff = pow (diff, _ShadowPow);
-                    //float dis = distance (i.worldPos, _WorldSpaceLightPos0);
-                    
-                    //diff *= shadow;
 
-                    float gap = 1.0 / (_ShadowLevel);
+                    float gapLevel = 1.0 / _ShadowLevel;
+                    //float lightLevel = diff / gapLevel;
                     float3 rampColor;
 
-                    /*for (int i = 0; i < _ShadowLevel; i++)
+                    // (i-1)/(n-1)
+                    // round 등 반올림을 하면 비율이 망가짐
+                    for (int i = 1; i <= _ShadowLevel; i++)
                     {
-                        if (i * gap <= diff)
+                        if ((i-1) * gapLevel <= diff && diff <= i * gapLevel)
                         {
-                            //rampColor += lerp (0, _LightColor0.rgb, gap);
-                           // rampColor *= (1, _LightColor0.rgb, i * gap);
-                            //break;
-                            if (i * gap <= diff && diff < (i+1)*gap)
-                            {
-                                if ((i * gap) - diff > diff - ((i+1) * gap))
-                                    rampColor = lerp (0, _LightColor0.rgb, (i * gap));
-                                else
-                                    rampColor = lerp (0, _LightColor0.rgb, ((i+1) * gap));
-                            
-                            }
-                            
+                            float r = (i-1.0) / (_ShadowLevel-1.0);
+                            rampColor = lerp (0, _LightColor0.rgb, r);
+                            break;
                         }
-
-                       // if (i == _ShadowLevel)
-                        //    return atten;
-                    }*/
-
-                   // float lightLevel = diff / gap;
-                    //lightLevel = round (lightLevel);
-                    //lightLevel = lightLevel / (_ShadowLevel+1);
-
-                    // 일단 하드코딩
-                    float lightLevel = round (diff * 10) * 0.1;
-
-                    if (0.7 <= lightLevel && lightLevel <= 1)
-                    {
-                        rampColor = _LightColor0.rgb;
                     }
-                    else if (0.4 <= lightLevel && lightLevel < 0.7)
-                    {
-                        rampColor = lerp (0, _LightColor0.rgb, 0.5);
-                    }
-                    else
-                    {
-                        rampColor = 0;
-                    }
-
-
-                    
-
-                    //fixed rampColor = tex2D (_RampTex, float2 (diff, 0.5));
  
                     fixed4 c;
-                    //c.rgb = (UNITY_LIGHTMODEL_AMBIENT.rgb * 2 * tex.rgb);         // Ambient term. Only do this in Forward Base. It only needs calculating once.
-                    //c.rgb = (tex.rgb * _LightColor0.rgb * rampColor);// * (atten * 2); // Diffuse and specular.
-                    
-                    
-
                     c.rgb = col * rampColor;
                     c.a = 1;
 
@@ -225,5 +158,5 @@ Shader "MyShader/Custom/Object_Toon"
             ENDCG
         }
     }
-    FallBack "VertexLit"    // Use VertexLit's shadow caster/receiver passes.
+    FallBack "VertexLit"  
 }

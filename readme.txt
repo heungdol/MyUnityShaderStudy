@@ -39,7 +39,7 @@
 
 		# Dissolve 이펙트 셰이더 (구현완료)
 
-		# 다중 포인트 라이트에 영향받는 툰 셰이더 (구현중)
+		# 다중 포인트 라이트에 영향받는 툰 셰이더 (구현완료)
 
 		# 관성 (지글, 스트링 본) 이펙트
 
@@ -91,6 +91,9 @@
 		# 레트로 스타일 포스터: https://elements.envato.com/80s-retro-poster-photoshop-action-SDK33Z
 
 		# 미리 정의된 셰이더 변수들: https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
+
+		# 코믹 셰이더: https://www.reddit.com/r/blender/comments/cnjcke/komikaze_family_got_bigger_link_in_comments/
+
 		
 	※ 기타 키워드 ※
 

@@ -138,14 +138,15 @@ Shader "MyShader/Custom/Object_CustomShadowShader"
                 s = saturate (s);
                 s = pow (s, _PatternPow);
 
-                float resultAlpha = 0;
+                float resultAlpha = 1;
                 float2 screenUV = mul (unity_WorldToObject, output.worldPos);
                 float patternCol = tex2D (_PatternTex, screenUV * _PatternScale).r;
                 
                 if (patternCol < (1 - s))
-                    resultAlpha = 0;
-                else
-                    resultAlpha = 1;
+                    discard;
+                    //resultAlpha = 0;
+                //else
+                //    resultAlpha = 1;
 
                 return float4 (_PatternCol.rgb, resultAlpha);
             }
