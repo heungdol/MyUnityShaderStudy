@@ -70,6 +70,7 @@
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\DepthVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\Ex\NormalVisualization.cs" />
      <Compile Include="Assets\Work\Custom\DepthNormals\RenderDN.cs" />
+     <Compile Include="Assets\Work\Custom\Jiggle\JiggleBone.cs" />
      <Compile Include="Assets\Work\Custom\PatternAmbientOcclusion\PatternAORender.cs" />
      <None Include="Assets\Work\Custom\MultiLight\MultiLightShaderNew.shader" />
      <None Include="Assets\Work\Custom\Shockwave\ShockwaveShader.shader" />

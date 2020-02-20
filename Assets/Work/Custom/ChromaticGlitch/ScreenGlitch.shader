@@ -3,7 +3,8 @@
     Properties
     {
         _MainTex ("Base (RGB)", 2D) = "white" {}
-        _GlitchOffset ("Glitch Offset", Range (0, 0.1)) = 0
+        _GlitchOffset ("Glitch Offset", Range (-0.1, 0.1)) = 0
+        [IntRange] _GlitchType ("Glitch Type", Range (0, 2)) = 0
     }
     SubShader
     {
@@ -17,24 +18,42 @@
 
             uniform sampler2D _MainTex;
             fixed _GlitchOffset;
+            int _GlitchType;
 
             fixed4 frag (v2f_img i) : COLOR
             {
-                //fixed4 renderTex = tex2D (_MainTex, i.uv);
-                //float luminosity = 0.299 * renderTex.r + 0.587 * renderTex.g + 0.114 * renderTex.b;
-                //float4 finalColor = lerp (renderTex, luminosity, _Luminosity);
-                //renderTex.rgb = finalColor;
-                //return renderTex;
-
                 fixed4 col;
-
                 fixed totalOffset = _GlitchOffset;
                 //totalOffset *= _GlitchOffset;
 
-                col.x = tex2D (_MainTex, i.uv + fixed2 (totalOffset, 0)).x;
-                col.y = tex2D (_MainTex, i.uv).y;
-                col.z = tex2D (_MainTex, i.uv + fixed2 (-totalOffset, 0)).z;
-                col.w = tex2D (_MainTex, i.uv).w;
+                //col.x = tex2D (_MainTex, i.uv + fixed2 (totalOffset, 0)).x;
+                //col.y = tex2D (_MainTex, i.uv).y;
+                //col.z = tex2D (_MainTex, i.uv + fixed2 (-totalOffset, 0)).z;
+                //col.w = tex2D (_MainTex, i.uv).w;
+
+                
+
+                if (_GlitchType == 0)
+                {
+                    col.x = tex2D (_MainTex, i.uv + fixed2 (totalOffset, 0)).x;
+                    col.y = tex2D (_MainTex, i.uv).y;
+                    col.z = tex2D (_MainTex, i.uv + fixed2 (-totalOffset, 0)).z;
+                    col.w = tex2D (_MainTex, i.uv).w;
+                }
+                else if (_GlitchType == 1)
+                {
+                    col.z = tex2D (_MainTex, i.uv + fixed2 (totalOffset, 0)).z;
+                    col.x = tex2D (_MainTex, i.uv).x;
+                    col.y = tex2D (_MainTex, i.uv + fixed2 (-totalOffset, 0)).y;
+                    col.w = tex2D (_MainTex, i.uv).w;
+                }
+                else
+                {
+                    col.y = tex2D (_MainTex, i.uv + fixed2 (totalOffset, 0)).y;
+                    col.z = tex2D (_MainTex, i.uv).z;
+                    col.x = tex2D (_MainTex, i.uv + fixed2 (-totalOffset, 0)).x;
+                    col.w = tex2D (_MainTex, i.uv).w;
+                }
 
                 return col;
             }

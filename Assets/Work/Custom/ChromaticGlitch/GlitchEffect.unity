@@ -1422,6 +1422,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 212800707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &220777426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4502148868393248880, guid: 663215e32fb86da479459f1d548e7fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 963895552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &220777428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220777426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809d365b7e8bef4c9e727e8b6ff93f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 220777429}
+  _mat: {fileID: 2100000, guid: 091ca2b17976ea34e8c9080074acc8c8, type: 2}
+--- !u!20 &220777429 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4502148868393248886, guid: 663215e32fb86da479459f1d548e7fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 963895552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &221895431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6800,9 +6826,15 @@ PrefabInstance:
     - target: {fileID: 4502148868393248884, guid: 663215e32fb86da479459f1d548e7fc6,
         type: 3}
       propertyPath: glitchOffset
-      value: 0.005
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4502148868393248884, guid: 663215e32fb86da479459f1d548e7fc6,
+        type: 3}
+      propertyPath: curShader
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4502148868393248884, guid: 663215e32fb86da479459f1d548e7fc6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 663215e32fb86da479459f1d548e7fc6, type: 3}
 --- !u!1001 &968424725
 PrefabInstance:
