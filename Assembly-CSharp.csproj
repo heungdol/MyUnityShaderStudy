@@ -99,6 +99,7 @@
      <None Include="Assets\Work\Chapter7\Shaders\DistortionByBump.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\_ReadMe.txt" />
      <None Include="Assets\Work\Chapter10\Shaders\ScreenOldFilm.shader" />
+     <None Include="Assets\Work\Custom\PatternToon\PatternToonShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\TexturedShader.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\SimpleDiffuse.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenBlendMode.shader" />

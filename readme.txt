@@ -17,9 +17,7 @@
 
 	● 구현하고자 하는 주요 셰이더 및 이펙트 리스트 ●
 		
-		# 반사 셰이더
-
-		# 글리치 셰이더 (이게 뭉개구름 효과)
+		# 반사 셰이더 (구현하기 어려움)
 
 		# 왜곡 셰이더 (Shock wave) (구현완료)
 
@@ -44,24 +42,6 @@
 		# 관성 (지글, 스트링 본) 이펙트
 
 		# Color Grading를 이용한 사이퍼펑크 스타일 색감 표현
-
-
-	● 구현한 셰이더 및 이펙트 ●
-
-		# Chromatic Glitch
-
-		# Pattern Ambient Occlusion
-
-		# Pattern Deco (Mesh)
-
-		# Pattern Deco (Texture)
-
-		# Pattern Shadow
-
-		# Pattern Tint
-
-		# Shock Wave
-
 		
 
 	※ 참고 포스트 리스트 ※
@@ -94,7 +74,9 @@
 
 		# 코믹 셰이더: https://www.reddit.com/r/blender/comments/cnjcke/komikaze_family_got_bigger_link_in_comments/
 
-		
+		# 이펙트아카데미: https://gamefx.co.kr/bbs/board.php?bo_table=Ugksun_01
+
+
 	※ 기타 키워드 ※
 
 		# Color Grading

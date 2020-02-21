@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/Custom/Jiggle/Jiggle.unity
+- path: Assets/Work/Custom/PatternToon/PatternToon.unity
   isLoaded: 1
   isActive: 1
