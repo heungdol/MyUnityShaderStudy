@@ -97,3 +97,5 @@
 	# SHADOW_ATTENUATION(output) (result = 0 or 1)
 	# UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
 	# 그림자 셰이더
+
+테스ㅡㅌ
