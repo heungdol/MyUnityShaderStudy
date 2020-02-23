@@ -1,6 +1,8 @@
 ﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
+// 셰이더를 적용하기 위한 조건: 메쉬의 스케일이 1이어야 한다!
+
 Shader "MyShader/Custom/Object_PatternToon"
 {
     Properties 
@@ -14,6 +16,7 @@ Shader "MyShader/Custom/Object_PatternToon"
         [NoScaleOffset] _ShadowTex ("Shadow Pattern Texture", 2D) = "white" {}
         _ShadowTexScale ("Shadow Pattern Scale", Range (0.1, 50)) = 1
         _ShadowTexRate ("Shadow Pattern Rate", Range (0, 1)) = 0.5
+        _ShadowTexRot ("Shadow Pattern Rotation", Range (0, 360)) = 0
     }
     SubShader 
     {
@@ -131,6 +134,7 @@ Shader "MyShader/Custom/Object_PatternToon"
                 sampler2D _ShadowTex;
                 float _ShadowTexScale;
                 float _ShadowTexRate;
+                float _ShadowTexRot;
 
                 fixed4 frag(v2f i) : COLOR
                 {
@@ -163,9 +167,10 @@ Shader "MyShader/Custom/Object_PatternToon"
                             // 해당되는 패턴 조건일 때
                             if ((diff - (index-1) * gapLevel) / gapLevel > (1 - _ShadowTexRate))
                             {
-                                float3 screenUV = mul (unity_WorldToObject, i.worldPos.xyz);
+                                float3 screenUV0 = mul (unity_WorldToObject, i.worldPos);
+                                screenUV0.xz = mul (screenUV0.xz, float2x2 (cos (radians (_ShadowTexRot)), -sin (radians (_ShadowTexRot)), sin (radians (_ShadowTexRot)), cos (radians (_ShadowTexRot))));
 
-                                float p = tex2Dlod (_ShadowTex, float4 (screenUV.xz, 0, 0) * _ShadowTexScale).r;
+                                float p = tex2Dlod (_ShadowTex, float4 ((screenUV0.x), (screenUV0.z), 0, 0)  * _ShadowTexScale).r;
 
                                 if (p < 0.5)
                                     r = (index) / (_ShadowLevel-1.0);
