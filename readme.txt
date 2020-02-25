@@ -12,7 +12,7 @@
 
 		# 사이버펑크
 		
-		# 스파이더맨 : 뉴 유니버스
+		# 스파이더맨 : 뉴 유니버스 -> Spider-verse style
 
 
 	● 구현하고자 하는 주요 셰이더 및 이펙트 리스트 ●
@@ -35,7 +35,9 @@
 
 		# 뭉개구름같은 효과 셰이더 (구현완료)
 
-		# Dissolve 이펙트 셰이더 (구현완료)
+		# Detail Dissolve 이펙트 셰이더 (구현완료)
+
+		# Detail in Screen Space Dissolve 이펙트 셰이더 (구현완료)
 
 		# 다중 포인트 라이트에 영향받는 툰 셰이더 (구현완료)
 
@@ -75,6 +77,8 @@
 		# 코믹 셰이더: https://www.reddit.com/r/blender/comments/cnjcke/komikaze_family_got_bigger_link_in_comments/
 
 		# 이펙트아카데미: https://gamefx.co.kr/bbs/board.php?bo_table=Ugksun_01
+
+		# md파일작성: https://ndb796.tistory.com/194
 
 
 	※ 기타 키워드 ※
