@@ -7,7 +7,9 @@
 
         // 해당되는 값이 1이 되도록 하는 텍스쳐
         _PatternTex ("Pattern Texture", 2D) = "white" {}
-        _PatternScale ("Pattern Scale", Float) = 1
+        _PatternScale ("Pattern Scale", Range (1, 10)) = 1
+        _PatternScaleDis ("Pattern Scale by Distance", Range (1, 20)) = 1
+        _PatternRot ("Pattern Rotation", Range (0, 360)) = 0
         _PatternPow ("Pattern Power", Range (0.1, 10)) = 1
 
         _LightRange ("Lighting Range", Range (0, 10)) = 0.1
@@ -81,6 +83,8 @@
             
             sampler2D _PatternTex;
             float _PatternScale;
+            float _PatternScaleDis;
+            float _PatternRot;
             float _PatternPow;
 
             struct vertInput
@@ -119,16 +123,30 @@
                 return o;
             }
 
+
             float4 frag (vertOutput i) : SV_TARGET 
             {
                 //float2 screenUV = i.worldPos / i.worldPos.z;// (i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
                 float2 screenUV = (i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
+                screenUV *= float2 (1, _ScreenParams.y / _ScreenParams.x);
+
+                // 회전
+                float2x2 rotMat = float2x2 (cos (radians (_PatternRot)), -sin (radians (_PatternRot))
+                                            , sin (radians (_PatternRot)), cos (radians (_PatternRot)));
+                screenUV = mul (screenUV, rotMat);
+
+                // 거리계산
+                float4 originPos = mul (unity_ObjectToWorld, float4 (0, 0, 0, 1));
+                float dis = distance (originPos, _WorldSpaceCameraPos.xyz);
+                dis /= _PatternScaleDis;
 
                 // 값이 작아질수록 크기도 작아진다
+                //float3 screenNormal = mul (UNITY_MATRIX_V, i.normal);
+
                 float d = dot (i.normal, i.viewDir);
                 d = pow (d, _PatternPow);
 
-                float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
+                float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale * dis).r;// * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
                 //float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale).r;
                 float4 resultCol;
                 resultCol.rgb = _MainColor.rgb;

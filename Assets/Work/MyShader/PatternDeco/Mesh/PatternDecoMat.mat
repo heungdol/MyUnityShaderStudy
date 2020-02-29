@@ -73,7 +73,9 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PatternPow: 2.59
-    - _PatternScale: 146.2
+    - _PatternRot: 107
+    - _PatternScale: 7.5
+    - _PatternScaleDis: 1.25
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -82,4 +84,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.4069972, g: 0, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 0.37465745, b: 0, a: 1}

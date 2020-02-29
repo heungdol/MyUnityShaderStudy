@@ -8,6 +8,7 @@ shader "MyShader/Custom/Object_Dissolve_ScreenSpace"
 
         _NoiseTex ("Noise Texture", 2D) = "white" {}
         _NoiseScale ("Noise Scale", Range (0.5, 10)) = 1
+        _NoiseScaleDis ("Noise Scale by Distance", Range (1, 20)) = 1
 
         _EdgeCol ("Edge Color", Color) = (1, 1, 1, 1)
         _Level ("Dissolution Level", Range (0, 1)) = 0.1
@@ -42,6 +43,7 @@ shader "MyShader/Custom/Object_Dissolve_ScreenSpace"
             
             sampler2D _NoiseTex;
             float _NoiseScale;
+            float _NoiseScaleDis;
 
             float4 _EdgeCol;
             float _Level;
@@ -82,10 +84,10 @@ shader "MyShader/Custom/Object_Dissolve_ScreenSpace"
                 if (_Level == 1)
                     discard;
 
+                // 메쉬 오브젝트의 중점으로부터 계산
                 float4 objectOrigin = mul (unity_ObjectToWorld, float4 (0, 0, 0, 1));
-
                 float dis = distance (_WorldSpaceCameraPos.xyz, objectOrigin.xyz);
-                dis /= 10;
+                dis /= _NoiseScaleDis;
 
                 float2 screenUV = (i.screenPos.xy / i.screenPos.z);// * 0.5 + 0.5;
                 screenUV *= float2 (1, (_ScreenParams.y / _ScreenParams.x));

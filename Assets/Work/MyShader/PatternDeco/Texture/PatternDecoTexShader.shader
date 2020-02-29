@@ -7,8 +7,9 @@
 
         // 해당되는 값이 1이 되도록 하는 텍스쳐
         _PatternTex ("Pattern Texture", 2D) = "white" {}
-        _PatternScale ("Pattern Scale", Float) = 1
+        _PatternScale ("Pattern Scale", Range (1, 20)) = 1
         _PatternPow ("Pattern Power", Range (0.1, 10)) = 1
+        _PatternRot ("Pattern Rotation", Range (0, 360)) = 0
 
         _AreaTex ("Area Texture", 2D) = "white" {}
     }
@@ -50,6 +51,7 @@
             sampler2D _PatternTex;
             float _PatternScale;
             float _PatternPow;
+            float _PatternRot;
 
             sampler2D _AreaTex;
             float4 _AreaTex_ST;
@@ -73,6 +75,11 @@
             {
                 float2 screenUV = mul (unity_WorldToObject, i.worldPos);/// i.vertex.w;//(i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
                 //float2 screenUV = (i.screenPos.xy / i.screenPos.z) * 0.5 + 0.5;
+
+                // 회전
+                float2x2 rotMat = float2x2 (cos (radians (_PatternRot)), -sin (radians (_PatternRot))
+                                            , sin (radians (_PatternRot)), cos (radians (_PatternRot)));
+                screenUV = mul (screenUV, rotMat);
 
                 float4 areaCol = tex2D (_AreaTex, i.uv);
                 //float4 patternCol = tex2D (_PatternTex, screenUV * _PatternScale * float2 (1, (_ScreenParams.y / _ScreenParams.x))).r;
