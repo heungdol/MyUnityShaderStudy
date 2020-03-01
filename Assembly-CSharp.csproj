@@ -121,6 +121,7 @@
      <None Include="Assets\Work\Chapter6\Shaders\NormalExtrusion.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\ScrollingUVs.shader" />
      <None Include="Assets\Work\MyShader\ChromaticGlitch\ScreenGlitch.shader" />
+     <None Include="Assets\Work\MyShader\ColorfulToon\ColorfulToonShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\Multiply.shader" />
      <None Include="Assets\Work\Chapter3\Shaders\Transparent.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VolumetricExplosion.shader" />

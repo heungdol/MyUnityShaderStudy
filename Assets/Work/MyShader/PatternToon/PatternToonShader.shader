@@ -43,6 +43,7 @@ Shader "MyShader/Custom/Object_PatternToon"
                     float2  uv          : TEXCOORD0;
                     float3  lightDir    : TEXCOORD2;
                     float3 normal		: TEXCOORD1;
+                    float3 worldPos : TEXCOORD3;
                     LIGHTING_COORDS(3,4)                            // Macro to send shadow & attenuation to the vertex shader.
                 };
  
@@ -56,13 +57,26 @@ Shader "MyShader/Custom/Object_PatternToon"
 					o.lightDir = ObjSpaceLightDir(v.vertex);
 					
 					o.normal =  v.normal;
+
+                    o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+
+
                     TRANSFER_VERTEX_TO_FRAGMENT(o);                 // Macro to send shadow & attenuation to the fragment shader.
                     return o;
                 }
  
                 sampler2D _MainTex;
                 fixed4 _Color;
+
                 fixed4 _ShadowCol;
+                int _ShadowLevel;
+                float _ShadowPow;
+                float _ShadowColPow;
+
+                sampler2D _ShadowTex;
+                float _ShadowTexScale;
+                float _ShadowTexRate;
+                float _ShadowTexRot;
 
                 fixed4 frag(v2f i) : COLOR
                 {
@@ -71,8 +85,44 @@ Shader "MyShader/Custom/Object_PatternToon"
                     
                     tex *= _Color;
 
+                    //fixed3 normal = i.normal;                    
+                    fixed diff = saturate(dot(i.normal, _WorldSpaceLightPos0.xyz));
+                    diff = diff;// * 0.5 + 0.5;
+                    diff *= atten;
+                    diff = pow (diff, _ShadowPow);
+
+                    float gapLevel = 1.0 / _ShadowLevel;
+                    //float lightLevel = diff / gapLevel;
+                    float3 rampColor = _ShadowCol.rgb;
+
+                    // (i-1)/(n-1)
+                    // round 등 반올림을 하면 비율이 망가짐
+                    for (int index = 1; index <= _ShadowLevel; index++)
+                    {
+                        // 해당되는 범위 내일 때
+                        if ((index-1) * gapLevel <= diff && diff <= index * gapLevel)
+                        {
+                            float r = (index-1.0) / (_ShadowLevel-1.0);
+                            
+                            // 해당되는 패턴 조건일 때
+                            if ((diff - (index-1) * gapLevel) / gapLevel > (1 - _ShadowTexRate))
+                            {
+                                float3 screenUV0 = mul (unity_WorldToObject, i.worldPos);
+                                screenUV0.xz = mul (screenUV0.xz, float2x2 (cos (radians (_ShadowTexRot)), -sin (radians (_ShadowTexRot)), sin (radians (_ShadowTexRot)), cos (radians (_ShadowTexRot))));
+
+                                float p = tex2Dlod (_ShadowTex, float4 ((screenUV0.x), (screenUV0.z), 0, 0)  * _ShadowTexScale).r;
+
+                                if (p < 0.5)
+                                    r = (index) / (_ShadowLevel-1.0);
+                            }
+
+                            rampColor = lerp (_ShadowCol.rgb, _LightColor0.rgb, pow (r, _ShadowColPow));
+                            break;
+                        }
+                    }
+
                     fixed4 c;
-                    c.rgb = _ShadowCol * tex.rgb;
+                    c.rgb = rampColor * tex.rgb;
                     c.a = 1;
                     return c;
                 }
@@ -145,7 +195,7 @@ Shader "MyShader/Custom/Object_PatternToon"
                     
                     col *= _Color.rgb;
                    
-					fixed3 normal = i.normal;                    
+					//fixed3 normal = i.normal;                    
                     fixed diff = saturate(dot(i.normal, i.lightDir));
                     diff = diff * 0.5 + 0.5;
                     diff *= atten;
