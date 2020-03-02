@@ -7,11 +7,12 @@ Shader "MyShader/Custom/Object_ColorfulToon"
     {
         _MainTex ("Base (RGB) Alpha (A)", 2D) = "white" {}
 
-        _BrightCol ("Bright Color", Color) = (1, 1, 1, 1)
-        _DarkCol ("Dark Color", Color) = (0, 0, 0, 1)
+        _SpecCol ("Specular Color", Color) = (1, 1, 1, 1)
 
-        _BrightRange ("Bright Range", Range (0, 1)) = 0.75
-        _DarkRange ("Dark Range", Range (0, 1)) = 0.5
+        _SpecRange0 ("Specular Range 0", Range (0, 1)) = 0.75
+        _SpecRange1 ("Specular Range 1", Range (0, 1)) = 0.5
+
+        _SpecPow ("Specular Power", Range (0.1, 10)) = 1
         
     }
     SubShader 
@@ -37,7 +38,7 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                 {
                     float4  pos         : SV_POSITION;
                     float2  uv          : TEXCOORD0;
-                    float3  lightDir    : TEXCOORD2;
+                    float3  worldNormal    : TEXCOORD2;
                     float3 normal		: TEXCOORD1;
                     float3 worldPos : TEXCOORD3;
                     LIGHTING_COORDS(3,4)                            // Macro to send shadow & attenuation to the vertex shader.
@@ -49,12 +50,12 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                     
                     o.pos = UnityObjectToClipPos( v.vertex);
                     o.uv = v.texcoord.xy;
-                   	
-					o.lightDir = ObjSpaceLightDir(v.vertex);
 					
 					o.normal =  v.normal;
 
                     o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+
+                    o.worldNormal = UnityObjectToWorldNormal (v.normal);
 
                     TRANSFER_VERTEX_TO_FRAGMENT(o);                 // Macro to send shadow & attenuation to the fragment shader.
                     return o;
@@ -62,11 +63,12 @@ Shader "MyShader/Custom/Object_ColorfulToon"
  
                 sampler2D _MainTex;
 
-                float4 _BrightCol;
-                float4 _DarkCol;
+                float4 _SpecCol;
 
-                float _BrightRange;
-                float _DarkRange;
+                float _SpecRange0;
+                float _SpecRange1;
+
+                float _SpecPow;
 
                 fixed4 frag(v2f i) : COLOR
                 {
@@ -86,9 +88,35 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                         lightDir = normalize (_WorldSpaceLightPos0.xyz - i.worldPos);
 
                     float3 halfDir = normalize (viewDir + lightDir);
-                    float diff = dot (i.normal, halfDir);
+                    float spec = dot (i.worldNormal, halfDir);
+                    spec = pow (spec, _SpecPow);
 
-                    resultCol.rgb = float3 (round (viewDir.r), round (viewDir.g), round (viewDir.b));
+                    float4 specCol;
+
+                    float3 totalNor = i.worldNormal * 0.5 + 0.5;
+                    totalNor = round (totalNor * 2) / 2;
+
+                    if (spec > _SpecRange0)
+                    {
+                        specCol.rgb = _SpecCol.rgb;
+                        specCol.a = _SpecCol.a;
+                    }
+                    else if (_SpecRange0 > spec && spec > _SpecRange1)
+                    {
+                        specCol.rgb = totalNor.xyz;
+                        specCol.a = _SpecCol.a;
+                    }
+                    else if (_SpecRange1 > spec)
+                    {
+                        specCol.a = 0;
+                    }
+                    
+                    //float3 (round (viewDir.r * 4) / 4, round (viewDir.g * 4) / 4, round (viewDir.b * 4) / 4);
+
+                    
+                    resultCol.rgb = tex;
+                    resultCol.rgb = specCol.a * specCol.rgb + (1 - specCol.a) * resultCol.rgb;
+                    //resultCol.rgb += specCol;
 
                     resultCol.a = 1;
 
