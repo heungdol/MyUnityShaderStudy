@@ -80,51 +80,49 @@ Shader "MyShader/Custom/Object_PatternToon"
 
                 fixed4 frag(v2f i) : COLOR
                 {
-                    fixed atten = LIGHT_ATTENUATION(i); // Macro to get you the combined shadow & attenuation value.
-                    fixed4 tex = tex2D(_MainTex, i.uv);
+                    i.lightDir = normalize(i.lightDir);
                     
-                    tex *= _Color;
-
-                    //fixed3 normal = i.normal;                    
-                    fixed diff = saturate(dot(i.normal, _WorldSpaceLightPos0.xyz));
-                    diff = diff;// * 0.5 + 0.5;
+                    fixed atten = LIGHT_ATTENUATION(i); // Macro to get you the combined shadow & attenuation value.
+                    fixed3 col = tex2D(_MainTex, i.uv).rgb;
+                    
+                    col *= _Color.rgb;
+                   
+					//fixed3 normal = i.normal;                    
+                    fixed diff = saturate(dot(i.normal, i.lightDir));
+                    diff = diff * 0.5 + 0.5;
                     diff *= atten;
                     diff = pow (diff, _ShadowPow);
 
                     float gapLevel = 1.0 / _ShadowLevel;
                     //float lightLevel = diff / gapLevel;
-                    float3 rampColor = _ShadowCol.rgb;
+                    float3 rampColor;
 
-                    // (i-1)/(n-1)
-                    // round 등 반올림을 하면 비율이 망가짐
-                    for (int index = 1; index <= _ShadowLevel; index++)
+                    float rampLevel = diff / gapLevel;
+                    rampLevel = ceil (rampLevel);
+
+                    float r = (rampLevel-1.0) / (_ShadowLevel-1.0);
+                    
+                    // 해당되는 패턴 조건일 때
+                    if ((diff - (rampLevel-1) * gapLevel) / gapLevel < (1 - _ShadowTexRate))
                     {
-                        // 해당되는 범위 내일 때
-                        if ((index-1) * gapLevel <= diff && diff <= index * gapLevel)
-                        {
-                            float r = (index-1.0) / (_ShadowLevel-1.0);
-                            
-                            // 해당되는 패턴 조건일 때
-                            if ((diff - (index-1) * gapLevel) / gapLevel > (1 - _ShadowTexRate))
-                            {
-                                float3 screenUV0 = mul (unity_WorldToObject, i.worldPos);
-                                screenUV0.xz = mul (screenUV0.xz, float2x2 (cos (radians (_ShadowTexRot)), -sin (radians (_ShadowTexRot)), sin (radians (_ShadowTexRot)), cos (radians (_ShadowTexRot))));
+                        //return 1;
 
-                                float p = tex2Dlod (_ShadowTex, float4 ((screenUV0.x), (screenUV0.z), 0, 0)  * _ShadowTexScale).r;
+                        float3 screenUV0 = mul (unity_WorldToObject, i.worldPos);
+                        screenUV0.xz = mul (screenUV0.xz, float2x2 (cos (radians (_ShadowTexRot)), -sin (radians (_ShadowTexRot)), sin (radians (_ShadowTexRot)), cos (radians (_ShadowTexRot))));
 
-                                if (p < 0.5)
-                                    r = (index) / (_ShadowLevel-1.0);
-                            }
+                        float p = tex2Dlod (_ShadowTex, float4 ((screenUV0.x), (screenUV0.z), 0, 0)  * _ShadowTexScale).r;
 
-                            rampColor = lerp (_ShadowCol.rgb, _LightColor0.rgb, pow (r, _ShadowColPow));
-                            break;
-                        }
+                        if (p > 0.5)
+                            r = (rampLevel-2) / (_ShadowLevel-1.0);
                     }
 
+                    rampColor = lerp (_ShadowCol.rgb, _LightColor0.rgb, pow (r, _ShadowColPow));
+ 
                     fixed4 c;
-                    c.rgb = rampColor * tex.rgb;
+                    c.rgb = col * rampColor;
                     c.a = 1;
-                    return c;
+
+                    return c; 
                 }
             ENDCG
         }
@@ -205,31 +203,26 @@ Shader "MyShader/Custom/Object_PatternToon"
                     //float lightLevel = diff / gapLevel;
                     float3 rampColor;
 
-                    // (i-1)/(n-1)
-                    // round 등 반올림을 하면 비율이 망가짐
-                    for (int index = 1; index <= _ShadowLevel; index++)
+                    float rampLevel = diff / gapLevel;
+                    rampLevel = ceil (rampLevel);
+
+                    float r = (rampLevel-1.0) / (_ShadowLevel-1.0);
+                    
+                    // 해당되는 패턴 조건일 때
+                    if ((diff - (rampLevel-1) * gapLevel) / gapLevel < (1 - _ShadowTexRate))
                     {
-                        // 해당되는 범위 내일 때
-                        if ((index-1) * gapLevel <= diff && diff <= index * gapLevel)
-                        {
-                            float r = (index-1.0) / (_ShadowLevel-1.0);
-                            
-                            // 해당되는 패턴 조건일 때
-                            if ((diff - (index-1) * gapLevel) / gapLevel > (1 - _ShadowTexRate))
-                            {
-                                float3 screenUV0 = mul (unity_WorldToObject, i.worldPos);
-                                screenUV0.xz = mul (screenUV0.xz, float2x2 (cos (radians (_ShadowTexRot)), -sin (radians (_ShadowTexRot)), sin (radians (_ShadowTexRot)), cos (radians (_ShadowTexRot))));
+                        //return 1;
 
-                                float p = tex2Dlod (_ShadowTex, float4 ((screenUV0.x), (screenUV0.z), 0, 0)  * _ShadowTexScale).r;
+                        float3 screenUV0 = mul (unity_WorldToObject, i.worldPos);
+                        screenUV0.xz = mul (screenUV0.xz, float2x2 (cos (radians (_ShadowTexRot)), -sin (radians (_ShadowTexRot)), sin (radians (_ShadowTexRot)), cos (radians (_ShadowTexRot))));
 
-                                if (p < 0.5)
-                                    r = (index) / (_ShadowLevel-1.0);
-                            }
+                        float p = tex2Dlod (_ShadowTex, float4 ((screenUV0.x), (screenUV0.z), 0, 0)  * _ShadowTexScale).r;
 
-                            rampColor = lerp (0, _LightColor0.rgb, pow (r, _ShadowColPow));
-                            break;
-                        }
+                        if (p > 0.5)
+                            r = (rampLevel-2) / (_ShadowLevel-1.0);
                     }
+
+                    rampColor = lerp (0, _LightColor0.rgb, pow (r, _ShadowColPow));
  
                     fixed4 c;
                     c.rgb = col * rampColor;
