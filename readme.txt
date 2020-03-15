@@ -82,6 +82,9 @@
 
 		# md파일작성: https://ndb796.tistory.com/194
 
+		# 이렇게 구현하는 것도 나쁘지 않는데: https://www.blendswap.com/blend_previews/22951/2/0?u=2019-07-17%2018:12:42
+
+		# 그럴싸: https://i.pinimg.com/originals/9f/6f/e2/9f6fe26069df0d2f68bd716cb1833673.jpg
 
 	※ 기타 키워드 ※
 

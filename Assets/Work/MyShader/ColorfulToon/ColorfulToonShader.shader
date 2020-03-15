@@ -7,17 +7,13 @@ Shader "MyShader/Custom/Object_ColorfulToon"
     {
         _MainTex ("Base (RGB) Alpha (A)", 2D) = "white" {}
 
-        _SpecCol ("Specular Color", Color) = (1, 1, 1, 1)
+        _RampTex ("Ramp Texture", 2D) = "white" {}
 
+        _SpecCol ("Specular Color", Color) = (1, 1, 1, 1)
         _SpecRange ("Specular Threshold", Range (0, 1)) = 0.75
         _SpecWidth ("Specular Width", Range (0, 1)) = 0.1
-        [IntRange]_SpecLevel ("Specular Level", Range (1, 10)) = 2
-        //_SpecRange1 ("Specular Range 1", Range (0, 1)) = 0.5
-
         _SpecPow ("Specular Power", Range (0.1, 10)) = 1
-
-        [IntRange] _ToonLevel ("Toon Level", Range (2, 10)) = 2
-        
+        [IntRange]_SpecLevel ("Specular Level", Range (1, 10)) = 2
     }
     SubShader 
     {
@@ -69,17 +65,15 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                 }
  
                 sampler2D _MainTex;
+                sampler2D _RampTex;
 
                 float4 _SpecCol;
 
                 float _SpecRange;
                 float _SpecWidth;
-                int _SpecLevel;
-                //float _SpecRange1;
-
                 float _SpecPow;
+                int _SpecLevel;
 
-                int _ToonLevel;
 
                 fixed4 frag(v2f i) : COLOR
                 {
@@ -89,8 +83,6 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                     fixed4 tex = tex2D(_MainTex, i.uv);
 
                     float3 worldNormal = UnityObjectToWorldNormal (i.normal);
-                    
-                    //tex *= _Color;
 
                     float3 viewDir = normalize (_WorldSpaceCameraPos.xyz - i.worldPos);
                     float3 lightDir;
@@ -105,8 +97,6 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                     spec = pow (spec, _SpecPow);
 
                     float4 specCol;
-
-                    
 
                     float3 totalNor = worldNormal * 0.5 + 0.5;
                     totalNor = round (totalNor * _SpecLevel) / _SpecLevel;
@@ -127,20 +117,10 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                     }
 
                     fixed diff = saturate(dot(i.normal, i.lightDir));
-                    diff = diff * 0.5 + 0.5;
+                    //diff = diff * 0.5 + 0.5;
                     diff *= atten;
 
-                    float gapLevel = 1.0 / (_ToonLevel);
-                    //float lightLevel = diff / gapLevel;
-                    float3 rampColor;
-
-                    float rampLevel = diff / gapLevel;
-                    rampLevel = ceil (rampLevel);
-
-                    float r = (rampLevel-1.0) / (_ToonLevel-1.0);
-                    rampColor = lerp (0, 1, pow (r, 2));
-                    
-                    //float3 (round (viewDir.r * 4) / 4, round (viewDir.g * 4) / 4, round (viewDir.b * 4) / 4);
+                    float3 rampColor = tex2Dlod (_RampTex, float4 (diff, 0.5, 0, 0)).rgb;
 
                     
                     resultCol.rgb = tex * rampColor;

@@ -72,7 +72,7 @@
      <Compile Include="Assets\Work\MyShader\DepthNormals\RenderDN.cs" />
      <Compile Include="Assets\Work\MyShader\Jiggle\JiggleBone.cs" />
      <Compile Include="Assets\Work\MyShader\PatternAmbientOcclusion\PatternAORender.cs" />
-     <None Include="Assets\Work\MyShader\MultiLight\MultiLightShaderNew.shader" />
+     <None Include="Assets\Work\MyShader\MultiLight\MultiLightShader.shader" />
      <None Include="Assets\Work\MyShader\Shockwave\ShockwaveShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SnowShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\SimpleVertexColor.shader" />
@@ -91,6 +91,7 @@
      <None Include="Assets\Work\Chapter7\Shaders\WindowShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
      <None Include="Assets\Work\MyShader\PatternTint\PatternTintShader.shader" />
+     <None Include="Assets\Work\MyShader\MultiLight2\MultiLight2Shader.shader" />
      <None Include="Assets\Work\Fail\Distortion\DistortionByBump.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\SeparableBlur.shader" />
