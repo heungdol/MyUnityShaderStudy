@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 2800000, guid: 8c3e2f8c55f989b48822f0860a606794, type: 3}
+        m_Texture: {fileID: 2800000, guid: b0b7f71cd2b8d274ea71af010dd4edc5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _diffuseMap:
@@ -76,7 +76,7 @@ Material:
     - _OcclusionStrength: 1
     - _OtherPow: 1.09
     - _Parallax: 0.02
-    - _RampPow: 1.25
+    - _RampPow: 1.22
     - _ShadowLevel: 3
     - _ShadowPow: 0.87
     - _SmoothnessTextureChannel: 0

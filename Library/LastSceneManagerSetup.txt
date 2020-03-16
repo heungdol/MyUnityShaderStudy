@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/MyShader/MultiLight2/MultiLight2.unity
+- path: Assets/Work/MyShader/MultiLight/MultiLight.unity
   isLoaded: 1
   isActive: 1

@@ -85,7 +85,8 @@ Shader "MyShader/Custom/Object_Toon2"
  
         Pass {
             Tags {"LightMode" = "ForwardAdd"}                       // Again, this pass tag is important otherwise Unity may not give the correct light information.
-            Blend One One                                           // Additively blend this pass with the previous one(s). This pass gets run once per pixel light.
+            Blend SrcAlpha OneMinusSrcAlpha
+            //Blend One One                                           // Additively blend this pass with the previous one(s). This pass gets run once per pixel light.
             CGPROGRAM
                 #pragma vertex vert
                 #pragma fragment frag
@@ -137,9 +138,9 @@ Shader "MyShader/Custom/Object_Toon2"
                     diff = pow (diff, _OtherPow);
 
                     if (diff > 0.5)
-                        return _LightColor0;
+                        return float4 (_LightColor0.rgb, 1);
 
-                    return 0;
+                    return float4 (0, 0, 0, 0);
                 }
             ENDCG
         }
