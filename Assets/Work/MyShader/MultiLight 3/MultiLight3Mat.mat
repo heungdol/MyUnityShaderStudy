@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MultiLightMat2
-  m_Shader: {fileID: 4800000, guid: 1f8c384525d304849880ba357721e3f4, type: 3}
+  m_Name: MultiLight3Mat
+  m_Shader: {fileID: 4800000, guid: c0377f5495a7e8540b80bfbda7a3be96, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 2800000, guid: b0b7f71cd2b8d274ea71af010dd4edc5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 01b8d1afc0f1b1144858eade6a981ccf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _diffuseMap:
@@ -74,9 +74,9 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OtherPow: 1.09
     - _Parallax: 0.02
-    - _RampPow: 1.22
+    - _RampPow: 1
+    - _RampPowCol: 1
     - _ShadowLevel: 3
     - _ShadowPow: 0.87
     - _SmoothnessTextureChannel: 0
@@ -85,7 +85,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.8567627, b: 0.8349056, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorB: {r: 0, g: 0.021007009, b: 0.38679248, a: 1}
+    - _ColorW: {r: 1, g: 0.90075916, b: 0.6839622, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowCol: {r: 0.4627451, g: 0, b: 0.2008636, a: 1}
     - _diffuseColor: {r: 1, g: 1, b: 1, a: 1}

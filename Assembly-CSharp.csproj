@@ -90,8 +90,9 @@
      <None Include="Assets\Work\Chapter4\Shaders\AnisotropicShader.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\WindowShader.shader" />
      <None Include="Assets\Work\Chapter9\Shaders\ScreenOverlay.shader" />
+     <None Include="Assets\Work\MyShader\MultiLight 3\MultiLight3Shader.shader" />
      <None Include="Assets\Work\MyShader\PatternTint\PatternTintShader.shader" />
-     <None Include="Assets\Work\MyShader\MultiLight2\MultiLight2Shader.shader" />
+     <None Include="Assets\Work\MyShader\MultiLight 2\MultiLight2Shader.shader" />
      <None Include="Assets\Work\Fail\Distortion\DistortionByBump.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\SeparableBlur.shader" />
