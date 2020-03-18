@@ -127,7 +127,7 @@ Shader "MyShader/Custom/Object_Toon"
                     
                     col *= _Color.rgb;
                    
-					fixed3 normal = i.normal;                    
+					fixed3 normal = UnityObjectToWorldNormal (i.normal);        
                     fixed diff = saturate(dot(i.normal, i.lightDir));
                     diff = diff * 0.5 + 0.5;
                     diff *= atten;

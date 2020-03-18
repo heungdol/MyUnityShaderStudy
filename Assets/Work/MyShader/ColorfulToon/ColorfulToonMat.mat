@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0a0e8af2869fa45f78e25460db578482, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 2800000, guid: b0b7f71cd2b8d274ea71af010dd4edc5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 695d83b62de73384f86e89feb73bb9fe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -73,13 +73,14 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RampPow: 1.8
     - _SmoothnessTextureChannel: 0
-    - _SpecLevel: 4
-    - _SpecPow: 10
-    - _SpecRange: 0.32
+    - _SpecLevel: 5
+    - _SpecPow: 6.1
+    - _SpecRange: 0.96
     - _SpecRange0: 0.29
     - _SpecRange1: 0.19
-    - _SpecWidth: 0.28
+    - _SpecWidth: 0.02
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _ToonLevel: 3

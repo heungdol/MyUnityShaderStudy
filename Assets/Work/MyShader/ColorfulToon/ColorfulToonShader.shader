@@ -8,11 +8,12 @@ Shader "MyShader/Custom/Object_ColorfulToon"
         _MainTex ("Base (RGB) Alpha (A)", 2D) = "white" {}
 
         _RampTex ("Ramp Texture", 2D) = "white" {}
+        _RampPow ("Ramp Power", Range (0.1, 10)) = 1
 
         _SpecCol ("Specular Color", Color) = (1, 1, 1, 1)
         _SpecRange ("Specular Threshold", Range (0, 1)) = 0.75
         _SpecWidth ("Specular Width", Range (0, 1)) = 0.1
-        _SpecPow ("Specular Power", Range (0.1, 10)) = 1
+        //_SpecPow ("Specular Power", Range (0.1, 10)) = 1
         [IntRange]_SpecLevel ("Specular Level", Range (1, 10)) = 2
     }
     SubShader 
@@ -66,12 +67,13 @@ Shader "MyShader/Custom/Object_ColorfulToon"
  
                 sampler2D _MainTex;
                 sampler2D _RampTex;
+                float _RampPow;
 
                 float4 _SpecCol;
 
                 float _SpecRange;
                 float _SpecWidth;
-                float _SpecPow;
+                //float _SpecPow;
                 int _SpecLevel;
 
 
@@ -94,7 +96,7 @@ Shader "MyShader/Custom/Object_ColorfulToon"
 
                     float3 halfDir = normalize (viewDir + lightDir);
                     float spec = dot (worldNormal, halfDir);
-                    spec = pow (spec, _SpecPow);
+                   // spec = pow (spec, _SpecPow);
 
                     float4 specCol;
 
@@ -116,9 +118,10 @@ Shader "MyShader/Custom/Object_ColorfulToon"
                         specCol.a = 0;
                     }
 
-                    fixed diff = saturate(dot(i.normal, i.lightDir));
-                    //diff = diff * 0.5 + 0.5;
+                    fixed diff = dot(i.normal, i.lightDir);
+                    diff = diff * 0.5 + 0.5;
                     diff *= atten;
+                    diff = pow (diff, _RampPow);
 
                     float3 rampColor = tex2Dlod (_RampTex, float4 (diff, 0.5, 0, 0)).rgb;
 
