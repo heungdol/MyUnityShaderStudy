@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Work/MyShader/ColorfulToon/ColorfulToon.unity
+- path: Assets/Work/MyEffect/Rain/Rain.unity
   isLoaded: 1
   isActive: 1

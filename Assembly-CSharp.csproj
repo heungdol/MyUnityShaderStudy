@@ -96,10 +96,12 @@
      <None Include="Assets\Work\Fail\Distortion\DistortionByBump.shader" />
      <None Include="Assets\Work\Chapter2\Shaders\StandardDiffuse.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\SeparableBlur.shader" />
+     <None Include="Assets\Work\MyEffect\Rain\RainBShader.shader" />
      <None Include="Assets\Work\Chapter6\Shaders\VertexAnimation.shader" />
      <None Include="Assets\Work\Chapter11\Shaders\Fur.shader" />
      <None Include="Assets\Work\MyShader\DepthNormals\Ex\DepthVisualization.shader" />
      <None Include="Assets\Work\Chapter7\Shaders\DistortionByBump.shader" />
+     <None Include="Assets\Work\MyEffect\Rain\RainAShader.shader" />
      <None Include="Assets\UnityReference\BlurryRefraction\_ReadMe.txt" />
      <None Include="Assets\Work\Chapter10\Shaders\ScreenOldFilm.shader" />
      <None Include="Assets\Work\MyShader\PatternToon\PatternToonShader.shader" />
